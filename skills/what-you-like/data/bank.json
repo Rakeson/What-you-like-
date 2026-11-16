@@ -1,0 +1,5235 @@
+{
+ "types": {
+  "R": {
+   "name": "Maker",
+   "title": "works things out with their hands",
+   "guess": "get your hands on something real and make it work",
+   "desc": "You seem to think best with something physical in front of you: tools, materials, a body in motion.",
+   "why": "Practical, physical work with a result you can see.",
+   "drain": "A week of physical, hands-on work",
+   "card": "Whether hands-on, physical work pulls you in. This is the Realistic strand of the Holland model."
+  },
+  "I": {
+   "name": "Investigator",
+   "title": "follows questions to the bottom",
+   "guess": "chase a question until it gives up its answer",
+   "desc": "You seem drawn to things that need figuring out, and you stay with a problem after other people move on.",
+   "why": "Runs on curiosity, evidence and figuring things out.",
+   "drain": "A week alone with one hard problem",
+   "card": "Whether puzzles and unexplained things pull you in. This is the Investigative strand."
+  },
+  "A": {
+   "name": "Creator",
+   "title": "makes things that were not there before",
+   "guess": "make something that did not exist this morning",
+   "desc": "You seem to want room to shape things your own way, and you notice how things look, sound and feel.",
+   "why": "Open-ended work where your own taste shapes the result.",
+   "drain": "A week with no brief and a blank page",
+   "card": "Whether open-ended making and self-expression pull you in. This is the Artistic strand."
+  },
+  "S": {
+   "name": "Helper",
+   "title": "pays attention to people",
+   "guess": "be useful to an actual person in front of you",
+   "desc": "You seem to notice how people are doing, and helping or teaching gives you energy back.",
+   "why": "Centred on helping, teaching or caring for people.",
+   "drain": "A week of looking after other people",
+   "card": "Whether helping, teaching and looking after people pull you in. This is the Social strand."
+  },
+  "E": {
+   "name": "Persuader",
+   "title": "gets things moving",
+   "guess": "take charge and get something off the ground",
+   "desc": "You seem comfortable taking the lead, making the case and betting on an idea.",
+   "why": "Rewards initiative, persuasion and taking the lead.",
+   "drain": "A week of pitching and persuading",
+   "card": "Whether leading, selling and taking risks pull you in. This is the Enterprising strand."
+  },
+  "C": {
+   "name": "Organizer",
+   "title": "puts things in order",
+   "guess": "bring order to something messy",
+   "desc": "You seem to enjoy getting details right and turning a mess into a system that works.",
+   "why": "Rewards accuracy, structure and systems people can rely on.",
+   "drain": "A week of forms, records and checking details",
+   "card": "Whether order, detail and clear systems pull you in. This is the Conventional strand."
+  }
+ },
+ "styleAxes": [
+  {
+   "id": "d",
+   "left": "Familiar",
+   "right": "Unknown"
+  },
+  {
+   "id": "e",
+   "left": "Solitude",
+   "right": "Company"
+  },
+  {
+   "id": "f",
+   "left": "Process",
+   "right": "Outcome"
+  },
+  {
+   "id": "t",
+   "left": "Warm & bright",
+   "right": "Dim & mysterious"
+  }
+ ],
+ "stylePhrases": {
+  "d": {
+   "1": "you would rather take the unmarked street than the recommended one",
+   "-1": "you go deep on what you already love instead of chasing what is new"
+  },
+  "e": {
+   "1": "you come alive around other people",
+   "-1": "you recharge alone and choose your company carefully"
+  },
+  "f": {
+   "1": "you like things to land, finished and whole",
+   "-1": "the doing is the reward for you, and the finish line is a bonus"
+  },
+  "t": {
+   "1": "you feel at home in dim light, fog and open questions",
+   "-1": "you lean toward warmth, daylight and things that leave you lighter"
+  }
+ },
+ "zones": [
+  "",
+  "Start right away",
+  "Short training",
+  "1 to 2 years of training",
+  "Bachelor's degree",
+  "Graduate degree"
+ ],
+ "cards": [
+  {
+   "id": "cR0",
+   "ty": "R",
+   "t": "A mechanical watch, taken apart on a workbench"
+  },
+  {
+   "id": "cR1",
+   "ty": "R",
+   "t": "A vegetable bed that needs digging over"
+  },
+  {
+   "id": "cR2",
+   "ty": "R",
+   "t": "A bicycle with a slipped chain"
+  },
+  {
+   "id": "cR3",
+   "ty": "R",
+   "t": "A flat-pack shelf with no instructions"
+  },
+  {
+   "id": "cR4",
+   "ty": "R",
+   "t": "A trail map and a pair of muddy boots"
+  },
+  {
+   "id": "cR5",
+   "ty": "R",
+   "t": "A sourdough starter that needs feeding"
+  },
+  {
+   "id": "cI0",
+   "ty": "I",
+   "t": "A telescope pointed at something faint"
+  },
+  {
+   "id": "cI1",
+   "ty": "I",
+   "t": "A dataset nobody has looked at yet"
+  },
+  {
+   "id": "cI2",
+   "ty": "I",
+   "t": "A fossil with a handwritten label"
+  },
+  {
+   "id": "cI3",
+   "ty": "I",
+   "t": "A crossword with three clues left"
+  },
+  {
+   "id": "cI4",
+   "ty": "I",
+   "t": "A documentary about how black holes form"
+  },
+  {
+   "id": "cI5",
+   "ty": "I",
+   "t": "A test result that should not be possible"
+  },
+  {
+   "id": "cA0",
+   "ty": "A",
+   "t": "A blank sketchbook and one good pen"
+  },
+  {
+   "id": "cA1",
+   "ty": "A",
+   "t": "An empty stage an hour before the show"
+  },
+  {
+   "id": "cA2",
+   "ty": "A",
+   "t": "A synthesizer with too many knobs"
+  },
+  {
+   "id": "cA3",
+   "ty": "A",
+   "t": "A camera with one roll of film left"
+  },
+  {
+   "id": "cA4",
+   "ty": "A",
+   "t": "A half-finished short story"
+  },
+  {
+   "id": "cA5",
+   "ty": "A",
+   "t": "Fabric scraps and a sewing machine"
+  },
+  {
+   "id": "cS0",
+   "ty": "S",
+   "t": "A friend who needs to talk something through"
+  },
+  {
+   "id": "cS1",
+   "ty": "S",
+   "t": "A classroom of ten-year-olds with questions"
+  },
+  {
+   "id": "cS2",
+   "ty": "S",
+   "t": "A community garden work day"
+  },
+  {
+   "id": "cS3",
+   "ty": "S",
+   "t": "A newcomer who knows nobody at the party"
+  },
+  {
+   "id": "cS4",
+   "ty": "S",
+   "t": "A first-aid kit and someone with a scraped knee"
+  },
+  {
+   "id": "cS5",
+   "ty": "S",
+   "t": "A neighbour learning to use a smartphone"
+  },
+  {
+   "id": "cE0",
+   "ty": "E",
+   "t": "A market stall and something to sell"
+  },
+  {
+   "id": "cE1",
+   "ty": "E",
+   "t": "A room that needs convincing"
+  },
+  {
+   "id": "cE2",
+   "ty": "E",
+   "t": "A group project with no leader"
+  },
+  {
+   "id": "cE3",
+   "ty": "E",
+   "t": "A negotiation over the price of a used car"
+  },
+  {
+   "id": "cE4",
+   "ty": "E",
+   "t": "A pitch you have ninety seconds to give"
+  },
+  {
+   "id": "cE5",
+   "ty": "E",
+   "t": "A club that needs twenty more members"
+  },
+  {
+   "id": "cC0",
+   "ty": "C",
+   "t": "A messy spreadsheet that could be tidy"
+  },
+  {
+   "id": "cC1",
+   "ty": "C",
+   "t": "A shelf of books in no order at all"
+  },
+  {
+   "id": "cC2",
+   "ty": "C",
+   "t": "A trip itinerary with every train time checked"
+  },
+  {
+   "id": "cC3",
+   "ty": "C",
+   "t": "A budget that has to balance to the cent"
+  },
+  {
+   "id": "cC4",
+   "ty": "C",
+   "t": "A drawer of tangled cables and a label maker"
+  },
+  {
+   "id": "cC5",
+   "ty": "C",
+   "t": "A checklist with one box left to tick"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "s0",
+   "prompt": "Halfway through a party, you are usually…",
+   "measures": "Where you drift when nobody is directing you: toward the crowd, one person, a task, or the door.",
+   "options": [
+    {
+     "t": "In the middle of the loudest group",
+     "w": {
+      "E": 1,
+      "S": 0.5,
+      "e": 1.5
+     }
+    },
+    {
+     "t": "In the kitchen, deep in one conversation",
+     "w": {
+      "S": 1,
+      "I": 0.5,
+      "e": 0.3
+     }
+    },
+    {
+     "t": "Fixing the speaker that keeps cutting out",
+     "w": {
+      "R": 1.5
+     }
+    },
+    {
+     "t": "Planning a quiet exit",
+     "w": {
+      "I": 0.3,
+      "e": -1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s1",
+   "prompt": "A week in a city you have never seen. First morning:",
+   "measures": "Whether you meet the unknown with a plan, a wander, a person or a question.",
+   "options": [
+    {
+     "t": "Follow the itinerary I built at home",
+     "w": {
+      "C": 1.5,
+      "d": -1
+     }
+    },
+    {
+     "t": "Walk until I am lost",
+     "w": {
+      "A": 0.5,
+      "d": 1.5
+     }
+    },
+    {
+     "t": "Find a local to show me around",
+     "w": {
+      "S": 1,
+      "E": 0.5,
+      "e": 1
+     }
+    },
+    {
+     "t": "Head for the museum I read about",
+     "w": {
+      "I": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "prompt": "A group project lands on your table. You reach for…",
+   "measures": "The role you take by default: leading, structuring, solving or shaping.",
+   "options": [
+    {
+     "t": "The whiteboard, to hand out roles",
+     "w": {
+      "E": 1.5
+     }
+    },
+    {
+     "t": "The shared doc, to set up the structure",
+     "w": {
+      "C": 1.5
+     }
+    },
+    {
+     "t": "The hard part nobody understands yet",
+     "w": {
+      "I": 1.5
+     }
+    },
+    {
+     "t": "The part that has to look good",
+     "w": {
+      "A": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "prompt": "Something at home breaks. You…",
+   "measures": "Four ways of meeting a problem: with hands, with reasoning, with people, or with a deal.",
+   "options": [
+    {
+     "t": "Take it apart to see how it works",
+     "w": {
+      "R": 1.5,
+      "I": 0.5
+     }
+    },
+    {
+     "t": "Look up exactly why it failed",
+     "w": {
+      "I": 1.5
+     }
+    },
+    {
+     "t": "Call someone who knows, and chat while they fix it",
+     "w": {
+      "S": 1,
+      "e": 1
+     }
+    },
+    {
+     "t": "Replace it with a better one and sell the old one",
+     "w": {
+      "E": 1,
+      "f": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "prompt": "A whole free day appears out of nowhere.",
+   "measures": "What you do when nothing is required of you is the cleanest signal there is.",
+   "options": [
+    {
+     "t": "Make something with my hands",
+     "w": {
+      "R": 1,
+      "A": 0.5,
+      "f": -0.5
+     }
+    },
+    {
+     "t": "Go down a rabbit hole on one topic",
+     "w": {
+      "I": 1.5,
+      "e": -1
+     }
+    },
+    {
+     "t": "See who is around",
+     "w": {
+      "S": 1.5,
+      "e": 1.5
+     }
+    },
+    {
+     "t": "Finally sort out the thing I keep putting off",
+     "w": {
+      "C": 1.5,
+      "f": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "prompt": "In a museum, you linger longest at…",
+   "measures": "What holds your attention: mechanisms, explanations, beauty, or other people.",
+   "options": [
+    {
+     "t": "The machines and tools",
+     "w": {
+      "R": 1.5
+     }
+    },
+    {
+     "t": "The explanations on the wall",
+     "w": {
+      "I": 1.5
+     }
+    },
+    {
+     "t": "One painting, for a long time",
+     "w": {
+      "A": 1.5,
+      "f": -1
+     }
+    },
+    {
+     "t": "The other visitors, and how they react",
+     "w": {
+      "S": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "s6",
+   "prompt": "Pick a gift for yourself.",
+   "measures": "A gift is a wish in disguise: to make, to learn, to gather people, or to start something.",
+   "options": [
+    {
+     "t": "A good set of tools",
+     "w": {
+      "R": 1.5
+     }
+    },
+    {
+     "t": "A year of courses in anything I want",
+     "w": {
+      "I": 1,
+      "d": 1
+     }
+    },
+    {
+     "t": "A handmade object with a story",
+     "w": {
+      "A": 1.5
+     }
+    },
+    {
+     "t": "A dinner for six people I choose",
+     "w": {
+      "S": 1.5,
+      "e": 1
+     }
+    },
+    {
+     "t": "Seed money for an idea",
+     "w": {
+      "E": 1.5,
+      "d": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "s7",
+   "prompt": "At ten years old, you could spend a whole afternoon…",
+   "measures": "Childhood absorptions tend to be stable. What held you then often still does.",
+   "options": [
+    {
+     "t": "Building forts, models or brick sets",
+     "w": {
+      "R": 1.5
+     }
+    },
+    {
+     "t": "Reading about dinosaurs, space or how things work",
+     "w": {
+      "I": 1.5
+     }
+    },
+    {
+     "t": "Drawing, writing or putting on shows",
+     "w": {
+      "A": 1.5
+     }
+    },
+    {
+     "t": "Sorting collections: cards, stickers, rocks",
+     "w": {
+      "C": 1.5
+     }
+    },
+    {
+     "t": "Running a game with rules for everyone",
+     "w": {
+      "E": 1,
+      "S": 0.5,
+      "e": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "s8",
+   "prompt": "A new restaurant opens. What do you notice first?",
+   "measures": "The lens you bring to an ordinary place: operations, aesthetics, people or business.",
+   "options": [
+    {
+     "t": "How the kitchen is run",
+     "w": {
+      "C": 1,
+      "R": 0.5
+     }
+    },
+    {
+     "t": "The lighting and the plates",
+     "w": {
+      "A": 1.5
+     }
+    },
+    {
+     "t": "Whether the staff seem happy",
+     "w": {
+      "S": 1.5
+     }
+    },
+    {
+     "t": "Whether the place will make money",
+     "w": {
+      "E": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s9",
+   "prompt": "Which headline do you click?",
+   "measures": "Curiosity has a direction. This checks which way yours points.",
+   "options": [
+    {
+     "t": "Scientists cannot explain this signal",
+     "w": {
+      "I": 1.5,
+      "t": 1
+     }
+    },
+    {
+     "t": "The town that rebuilt itself by hand",
+     "w": {
+      "R": 1,
+      "S": 0.5
+     }
+    },
+    {
+     "t": "How a 24-year-old built a brand from nothing",
+     "w": {
+      "E": 1.5
+     }
+    },
+    {
+     "t": "The lost album, found after forty years",
+     "w": {
+      "A": 1.5,
+      "t": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "prompt": "You have four volunteer hours. You spend them…",
+   "measures": "The same generous impulse, expressed through four different kinds of work.",
+   "options": [
+    {
+     "t": "Repairing bikes",
+     "w": {
+      "R": 1.5
+     }
+    },
+    {
+     "t": "Tutoring one student",
+     "w": {
+      "S": 1.5
+     }
+    },
+    {
+     "t": "Running the fundraising table",
+     "w": {
+      "E": 1.5
+     }
+    },
+    {
+     "t": "Doing the charity's books",
+     "w": {
+      "C": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s11",
+   "prompt": "Which rabbit hole gets you at 1 a.m.?",
+   "measures": "What you watch when nobody is counting says more than what you say you like.",
+   "options": [
+    {
+     "t": "Restoration videos",
+     "w": {
+      "R": 1.5,
+      "f": -1
+     }
+    },
+    {
+     "t": "Unsolved mysteries",
+     "w": {
+      "I": 1,
+      "t": 1.5
+     }
+    },
+    {
+     "t": "Someone's portfolio",
+     "w": {
+      "A": 1.5
+     }
+    },
+    {
+     "t": "Productivity systems",
+     "w": {
+      "C": 1.5
+     }
+    },
+    {
+     "t": "Founder interviews",
+     "w": {
+      "E": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s12",
+   "prompt": "Which compliment lands best?",
+   "measures": "The praise you want most points at the identity you are building.",
+   "options": [
+    {
+     "t": "You make things work.",
+     "w": {
+      "R": 1.5
+     }
+    },
+    {
+     "t": "You always ask the right question.",
+     "w": {
+      "I": 1.5
+     }
+    },
+    {
+     "t": "Nobody else would have thought of that.",
+     "w": {
+      "A": 1.5
+     }
+    },
+    {
+     "t": "People feel better around you.",
+     "w": {
+      "S": 1.5
+     }
+    },
+    {
+     "t": "You could sell anything.",
+     "w": {
+      "E": 1.5
+     }
+    },
+    {
+     "t": "Nothing slips past you.",
+     "w": {
+      "C": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s13",
+   "prompt": "On board-game night you are…",
+   "measures": "Play strips away job titles. This is how you behave when it is only a game.",
+   "options": [
+    {
+     "t": "Reading the rulebook so we play it right",
+     "w": {
+      "C": 1.5
+     }
+    },
+    {
+     "t": "Working out the best strategy",
+     "w": {
+      "I": 1.5,
+      "f": 1
+     }
+    },
+    {
+     "t": "Making alliances and breaking them",
+     "w": {
+      "E": 1.5,
+      "e": 1
+     }
+    },
+    {
+     "t": "Making sure everyone is having fun",
+     "w": {
+      "S": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s14",
+   "prompt": "Your ideal workspace has…",
+   "measures": "The room you would build for yourself shows the work you want to be doing in it.",
+   "options": [
+    {
+     "t": "A workbench and good tools",
+     "w": {
+      "R": 1.5
+     }
+    },
+    {
+     "t": "A wall of pinned-up references",
+     "w": {
+      "A": 1,
+      "I": 0.5
+     }
+    },
+    {
+     "t": "People dropping by",
+     "w": {
+      "S": 1,
+      "E": 0.5,
+      "e": 1.5
+     }
+    },
+    {
+     "t": "One clean desk, everything in its place",
+     "w": {
+      "C": 1.5,
+      "e": -0.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s15",
+   "prompt": "The school subject you secretly liked:",
+   "measures": "Not the one you were best at. The one you liked says more about fit.",
+   "options": [
+    {
+     "t": "Shop, PE or anything outdoors",
+     "w": {
+      "R": 1.5
+     }
+    },
+    {
+     "t": "Science or maths",
+     "w": {
+      "I": 1.5
+     }
+    },
+    {
+     "t": "Art, music or drama",
+     "w": {
+      "A": 1.5
+     }
+    },
+    {
+     "t": "Whatever had the best discussions",
+     "w": {
+      "S": 1,
+      "E": 0.5
+     }
+    },
+    {
+     "t": "The one with clear rules and right answers",
+     "w": {
+      "C": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s16",
+   "prompt": "A local festival needs help. You sign up to…",
+   "measures": "One event, five jobs. Each maps to a different Holland type.",
+   "options": [
+    {
+     "t": "Build the stage",
+     "w": {
+      "R": 1.5
+     }
+    },
+    {
+     "t": "Design the poster",
+     "w": {
+      "A": 1.5
+     }
+    },
+    {
+     "t": "Welcome people at the gate",
+     "w": {
+      "S": 1.5
+     }
+    },
+    {
+     "t": "Book the acts and sponsors",
+     "w": {
+      "E": 1.5
+     }
+    },
+    {
+     "t": "Run the schedule and the cash box",
+     "w": {
+      "C": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s17",
+   "prompt": "The book you would actually finish:",
+   "measures": "Finishing is the test. It separates what interests you from what you think should.",
+   "options": [
+    {
+     "t": "How everyday things are made",
+     "w": {
+      "R": 1,
+      "I": 0.5
+     }
+    },
+    {
+     "t": "A big idea that changes how I see something",
+     "w": {
+      "I": 1.5
+     }
+    },
+    {
+     "t": "A novel with a strange voice",
+     "w": {
+      "A": 1.5,
+      "t": 0.5
+     }
+    },
+    {
+     "t": "A memoir about an ordinary life",
+     "w": {
+      "S": 1
+     }
+    },
+    {
+     "t": "How someone built a company",
+     "w": {
+      "E": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s18",
+   "prompt": "A friend is stuck on a decision. You…",
+   "measures": "How you help reveals what you trust: listening, structure, conviction or reframing.",
+   "options": [
+    {
+     "t": "Listen until they find it themselves",
+     "w": {
+      "S": 1.5
+     }
+    },
+    {
+     "t": "Lay out pros and cons in two columns",
+     "w": {
+      "C": 1,
+      "I": 0.5
+     }
+    },
+    {
+     "t": "Tell them what I would do",
+     "w": {
+      "E": 1.5
+     }
+    },
+    {
+     "t": "Ask a question that reframes it",
+     "w": {
+      "I": 1,
+      "A": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s19",
+   "prompt": "At a flea market, you come home with…",
+   "measures": "What you rescue from a pile of old things: beauty, materials, profit, sets or stories.",
+   "options": [
+    {
+     "t": "One beautiful thing I could never make",
+     "w": {
+      "A": 1
+     }
+    },
+    {
+     "t": "Raw materials for a project",
+     "w": {
+      "R": 1,
+      "A": 0.5
+     }
+    },
+    {
+     "t": "Something I can resell",
+     "w": {
+      "E": 1.5
+     }
+    },
+    {
+     "t": "The missing piece of a set",
+     "w": {
+      "C": 1.5
+     }
+    },
+    {
+     "t": "A story from the seller",
+     "w": {
+      "S": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s20",
+   "prompt": "The most-used folder on your phone would be…",
+   "measures": "A rough audit of where your attention already goes.",
+   "options": [
+    {
+     "t": "Maps and outdoors",
+     "w": {
+      "R": 1,
+      "d": 1
+     }
+    },
+    {
+     "t": "Podcasts and articles",
+     "w": {
+      "I": 1.5
+     }
+    },
+    {
+     "t": "Camera and editing",
+     "w": {
+      "A": 1.5
+     }
+    },
+    {
+     "t": "Messages",
+     "w": {
+      "S": 1.5,
+      "e": 1
+     }
+    },
+    {
+     "t": "Selling and side projects",
+     "w": {
+      "E": 1.5
+     }
+    },
+    {
+     "t": "Notes and lists",
+     "w": {
+      "C": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s21",
+   "prompt": "You would rather be known for…",
+   "measures": "The legacy you pick is the plainest statement of what you value doing.",
+   "options": [
+    {
+     "t": "Something I built",
+     "w": {
+      "R": 1.5,
+      "f": 1
+     }
+    },
+    {
+     "t": "Something I discovered",
+     "w": {
+      "I": 1.5
+     }
+    },
+    {
+     "t": "Something I made that moved people",
+     "w": {
+      "A": 1.5
+     }
+    },
+    {
+     "t": "Someone I helped",
+     "w": {
+      "S": 1.5
+     }
+    },
+    {
+     "t": "Something I started",
+     "w": {
+      "E": 1.5
+     }
+    },
+    {
+     "t": "Something I kept running",
+     "w": {
+      "C": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s22",
+   "prompt": "A free weekend and a box of tools. You…",
+   "measures": "Three relationships with craft: inventing, restoring, or studying it.",
+   "options": [
+    {
+     "t": "Build something new",
+     "w": {
+      "R": 1,
+      "A": 0.5,
+      "d": 0.5
+     }
+    },
+    {
+     "t": "Fix up something old",
+     "w": {
+      "R": 1.5,
+      "d": -0.5,
+      "f": -0.5
+     }
+    },
+    {
+     "t": "Read about something someone else built",
+     "w": {
+      "I": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "s23",
+   "prompt": "A documentary you would watch twice:",
+   "measures": "A second viewing means real interest. The subject shows which kind.",
+   "options": [
+    {
+     "t": "How a bridge gets built",
+     "w": {
+      "R": 1.5
+     }
+    },
+    {
+     "t": "What is at the bottom of the ocean",
+     "w": {
+      "I": 1.5,
+      "t": 0.5
+     }
+    },
+    {
+     "t": "A year inside a dance company",
+     "w": {
+      "A": 1.5
+     }
+    },
+    {
+     "t": "A teacher in a tough school",
+     "w": {
+      "S": 1.5
+     }
+    },
+    {
+     "t": "The rise and fall of a company",
+     "w": {
+      "E": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s24",
+   "prompt": "A shared flat needs a system. You volunteer to…",
+   "measures": "Everyday chores sort people by type faster than most tests.",
+   "options": [
+    {
+     "t": "Fix what is broken",
+     "w": {
+      "R": 1.5
+     }
+    },
+    {
+     "t": "Make the place look good",
+     "w": {
+      "A": 1.5
+     }
+    },
+    {
+     "t": "Keep the peace",
+     "w": {
+      "S": 1.5
+     }
+    },
+    {
+     "t": "Negotiate with the landlord",
+     "w": {
+      "E": 1.5
+     }
+    },
+    {
+     "t": "Run the rota and the bills",
+     "w": {
+      "C": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "s25",
+   "prompt": "You find a notebook on a train. The best thing it could contain:",
+   "measures": "What you hope to find is what you would most like to spend time on.",
+   "options": [
+    {
+     "t": "Sketches and half-written songs",
+     "w": {
+      "A": 1.5
+     }
+    },
+    {
+     "t": "Notes on an unsolved problem",
+     "w": {
+      "I": 1.5,
+      "t": 0.5
+     }
+    },
+    {
+     "t": "Plans for a business",
+     "w": {
+      "E": 1.5
+     }
+    },
+    {
+     "t": "Letters to someone",
+     "w": {
+      "S": 1.5
+     }
+    },
+    {
+     "t": "A perfectly kept log of something",
+     "w": {
+      "C": 1.5
+     }
+    },
+    {
+     "t": "Blueprints for a machine",
+     "w": {
+      "R": 1.5
+     }
+    }
+   ]
+  }
+ ],
+ "styleQuestions": [
+  {
+   "id": "y0",
+   "axis": "d",
+   "prompt": "How often do you re-read or re-watch your favorites?",
+   "measures": "Whether depth or breadth feeds you. Returning to favorites is a way of going deeper.",
+   "options": [
+    {
+     "t": "Constantly. That is what favorites are for.",
+     "w": {
+      "d": -1.5
+     }
+    },
+    {
+     "t": "Sometimes, when I need comfort",
+     "w": {
+      "d": -0.3
+     }
+    },
+    {
+     "t": "Rarely. There is too much I have not seen.",
+     "w": {
+      "d": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "y1",
+   "axis": "d",
+   "prompt": "A year, all expenses paid. One condition:",
+   "measures": "Novelty versus depth, at the scale of a whole year.",
+   "options": [
+    {
+     "t": "Live somewhere I have never been",
+     "w": {
+      "d": 1.5
+     }
+    },
+    {
+     "t": "Stay put and go deep on one thing I already love",
+     "w": {
+      "d": -1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "y2",
+   "axis": "e",
+   "prompt": "Good news arrives. Your first move:",
+   "measures": "Where you process things: out loud with others, or inside first.",
+   "options": [
+    {
+     "t": "Tell someone right away",
+     "w": {
+      "e": 1.5,
+      "S": 0.3
+     }
+    },
+    {
+     "t": "Sit with it alone for a while",
+     "w": {
+      "e": -1.5
+     }
+    },
+    {
+     "t": "Write it down",
+     "w": {
+      "e": -0.5,
+      "A": 0.3
+     }
+    }
+   ]
+  },
+  {
+   "id": "y3",
+   "axis": "e",
+   "prompt": "The best conversations happen…",
+   "measures": "Social energy: groups, pairs, or the conversation you have with yourself.",
+   "options": [
+    {
+     "t": "In a group, ideas bouncing around",
+     "w": {
+      "e": 1.5,
+      "E": 0.3
+     }
+    },
+    {
+     "t": "One-on-one, late at night",
+     "w": {
+      "e": 0.3,
+      "t": 0.5
+     }
+    },
+    {
+     "t": "In my own head",
+     "w": {
+      "e": -1.5,
+      "I": 0.3
+     }
+    }
+   ]
+  },
+  {
+   "id": "y4",
+   "axis": "f",
+   "prompt": "After a long trip you can keep only one.",
+   "measures": "Process versus outcome: the edited result or the raw experience.",
+   "options": [
+    {
+     "t": "The finished photo album",
+     "w": {
+      "f": 1.5
+     }
+    },
+    {
+     "t": "All the unedited footage",
+     "w": {
+      "f": -1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "y5",
+   "axis": "f",
+   "prompt": "A thousand-piece puzzle. The best moment is…",
+   "measures": "Whether the reward is in the doing or in the finishing.",
+   "options": [
+    {
+     "t": "The last piece going in",
+     "w": {
+      "f": 1.5
+     }
+    },
+    {
+     "t": "The long middle, sorting and trying",
+     "w": {
+      "f": -1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "y6",
+   "axis": "t",
+   "prompt": "Your ideal light:",
+   "measures": "Mood. People who pick a single lamp in a dark room tend to like mystery and depth.",
+   "options": [
+    {
+     "t": "Noon sun",
+     "w": {
+      "t": -1.5
+     }
+    },
+    {
+     "t": "Blue hour",
+     "w": {
+      "t": 1
+     }
+    },
+    {
+     "t": "One lamp in a dark room",
+     "w": {
+      "t": 1.5,
+      "e": -0.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "y7",
+   "axis": "t",
+   "prompt": "Music for a long night drive:",
+   "measures": "Mood again, from the angle of sound.",
+   "options": [
+    {
+     "t": "Something with sunshine in it",
+     "w": {
+      "t": -1.5
+     }
+    },
+    {
+     "t": "Something that sounds like fog",
+     "w": {
+      "t": 1.5
+     }
+    }
+   ]
+  }
+ ],
+ "pairs": [
+  {
+   "id": "p0",
+   "types": "RI",
+   "prompt": "A stuck engine.",
+   "a": "Get my hands in and try things",
+   "b": "Read the manual and reason it out"
+  },
+  {
+   "id": "p1",
+   "types": "RI",
+   "prompt": "A weekend course:",
+   "a": "Welding",
+   "b": "Astronomy"
+  },
+  {
+   "id": "p2",
+   "types": "RA",
+   "prompt": "A plain wooden chair.",
+   "a": "Make it sturdier",
+   "b": "Make it stranger"
+  },
+  {
+   "id": "p3",
+   "types": "RA",
+   "prompt": "A blank wall.",
+   "a": "Build shelves on it",
+   "b": "Paint a mural on it"
+  },
+  {
+   "id": "p4",
+   "types": "RS",
+   "prompt": "A flooded street.",
+   "a": "Fill sandbags",
+   "b": "Check on the neighbours"
+  },
+  {
+   "id": "p5",
+   "types": "RS",
+   "prompt": "A summer job:",
+   "a": "Landscaping crew",
+   "b": "Camp counsellor"
+  },
+  {
+   "id": "p6",
+   "types": "RE",
+   "prompt": "A food truck.",
+   "a": "Cook in it",
+   "b": "Run the business"
+  },
+  {
+   "id": "p7",
+   "types": "RE",
+   "prompt": "An old house.",
+   "a": "Renovate it",
+   "b": "Buy it, sell it, move on"
+  },
+  {
+   "id": "p8",
+   "types": "RC",
+   "prompt": "A workshop.",
+   "a": "Use the tools",
+   "b": "Organize the tools"
+  },
+  {
+   "id": "p9",
+   "types": "RC",
+   "prompt": "A warehouse shift:",
+   "a": "Drive the forklift",
+   "b": "Run the inventory system"
+  },
+  {
+   "id": "p10",
+   "types": "IA",
+   "prompt": "A sunset.",
+   "a": "Why is it that colour?",
+   "b": "How would I paint it?"
+  },
+  {
+   "id": "p11",
+   "types": "IA",
+   "prompt": "A film.",
+   "a": "Work out the twist before it lands",
+   "b": "Notice how it was shot"
+  },
+  {
+   "id": "p12",
+   "types": "IS",
+   "prompt": "A struggling student.",
+   "a": "Work out why the method fails",
+   "b": "Sit with them until it clicks"
+  },
+  {
+   "id": "p13",
+   "types": "IS",
+   "prompt": "A hospital:",
+   "a": "The lab",
+   "b": "The ward"
+  },
+  {
+   "id": "p14",
+   "types": "IE",
+   "prompt": "A breakthrough.",
+   "a": "Understand it",
+   "b": "Launch it"
+  },
+  {
+   "id": "p15",
+   "types": "IE",
+   "prompt": "A startup:",
+   "a": "Solve the hard technical problem",
+   "b": "Win the first customers"
+  },
+  {
+   "id": "p16",
+   "types": "IC",
+   "prompt": "A pile of survey results.",
+   "a": "Hunt for the surprising pattern",
+   "b": "Clean and file every row"
+  },
+  {
+   "id": "p17",
+   "types": "IC",
+   "prompt": "A library:",
+   "a": "Research in it",
+   "b": "Catalogue it"
+  },
+  {
+   "id": "p18",
+   "types": "AS",
+   "prompt": "A school play.",
+   "a": "Write it",
+   "b": "Coach the nervous kids"
+  },
+  {
+   "id": "p19",
+   "types": "AS",
+   "prompt": "A friend has a hard week.",
+   "a": "Make them something",
+   "b": "Spend the evening with them"
+  },
+  {
+   "id": "p20",
+   "types": "AE",
+   "prompt": "A band.",
+   "a": "Write the songs",
+   "b": "Book the tour"
+  },
+  {
+   "id": "p21",
+   "types": "AE",
+   "prompt": "A gallery:",
+   "a": "Hang my work in it",
+   "b": "Run it"
+  },
+  {
+   "id": "p22",
+   "types": "AC",
+   "prompt": "A magazine.",
+   "a": "Design the cover",
+   "b": "Proofread every page"
+  },
+  {
+   "id": "p23",
+   "types": "AC",
+   "prompt": "A recipe.",
+   "a": "Improvise",
+   "b": "Follow it exactly"
+  },
+  {
+   "id": "p24",
+   "types": "SE",
+   "prompt": "A room of strangers.",
+   "a": "Make one of them comfortable",
+   "b": "Win all of them over"
+  },
+  {
+   "id": "p25",
+   "types": "SE",
+   "prompt": "A team:",
+   "a": "Support it",
+   "b": "Lead it"
+  },
+  {
+   "id": "p26",
+   "types": "SC",
+   "prompt": "A charity.",
+   "a": "Work with the people it serves",
+   "b": "Keep its records straight"
+  },
+  {
+   "id": "p27",
+   "types": "SC",
+   "prompt": "A new hire's first day.",
+   "a": "Show them around",
+   "b": "Set up their accounts"
+  },
+  {
+   "id": "p28",
+   "types": "EC",
+   "prompt": "A business.",
+   "a": "Start it",
+   "b": "Keep it running smoothly"
+  },
+  {
+   "id": "p29",
+   "types": "EC",
+   "prompt": "A deal.",
+   "a": "Close it",
+   "b": "Check the contract line by line"
+  }
+ ],
+ "occupations": [
+  {
+   "name": "Graphic Designer",
+   "code": "ARE",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Illustrator",
+   "code": "ARE",
+   "zone": 3,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Film and Video Editor",
+   "code": "AIE",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Photographer",
+   "code": "ARE",
+   "zone": 3,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Writer or Author",
+   "code": "AIE",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Musician",
+   "code": "AER",
+   "zone": 3,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Actor",
+   "code": "AES",
+   "zone": 2,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Art Director",
+   "code": "AEC",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Animator",
+   "code": "AIR",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Sound Engineer",
+   "code": "RAI",
+   "zone": 3,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Editor",
+   "code": "AEC",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Journalist",
+   "code": "AEI",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Game Designer",
+   "code": "AIE",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Fashion Designer",
+   "code": "AER",
+   "zone": 3,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Interior Designer",
+   "code": "AER",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Translator",
+   "code": "ASC",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Museum Curator",
+   "code": "AIE",
+   "zone": 5,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Set and Exhibit Designer",
+   "code": "ARE",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Technical Writer",
+   "code": "AIC",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Architect",
+   "code": "AIR",
+   "zone": 5,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Landscape Architect",
+   "code": "AIR",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Industrial Designer",
+   "code": "AER",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "UX Designer",
+   "code": "AIC",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Floral Designer",
+   "code": "ARE",
+   "zone": 2,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Makeup Artist",
+   "code": "ARS",
+   "zone": 3,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Music Producer",
+   "code": "AES",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Choreographer",
+   "code": "ASE",
+   "zone": 3,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Copywriter",
+   "code": "AES",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Stage Manager",
+   "code": "EAC",
+   "zone": 4,
+   "field": "Arts & Media"
+  },
+  {
+   "name": "Biologist",
+   "code": "IRC",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Chemist",
+   "code": "IRC",
+   "zone": 4,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Physicist",
+   "code": "IRC",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Astronomer",
+   "code": "IAR",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Geoscientist",
+   "code": "IRC",
+   "zone": 4,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Environmental Scientist",
+   "code": "IRC",
+   "zone": 4,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Clinical Psychologist",
+   "code": "ISA",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Sociologist",
+   "code": "IAS",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Archaeologist",
+   "code": "IRA",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Historian",
+   "code": "IAC",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Economist",
+   "code": "ICE",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Epidemiologist",
+   "code": "ISC",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Food Scientist",
+   "code": "IRC",
+   "zone": 4,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Forensic Science Technician",
+   "code": "IRC",
+   "zone": 4,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Wildlife Biologist",
+   "code": "IRA",
+   "zone": 4,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Medical Scientist",
+   "code": "IRA",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Statistician",
+   "code": "ICR",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Conservation Scientist",
+   "code": "RIE",
+   "zone": 4,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Archivist",
+   "code": "CIA",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Urban Planner",
+   "code": "IEA",
+   "zone": 5,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Science Writer",
+   "code": "IAE",
+   "zone": 4,
+   "field": "Science & Research"
+  },
+  {
+   "name": "Software Developer",
+   "code": "ICR",
+   "zone": 4,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "Data Scientist",
+   "code": "ICE",
+   "zone": 4,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "Web Developer",
+   "code": "ICA",
+   "zone": 3,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "Information Security Analyst",
+   "code": "CIR",
+   "zone": 4,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "Database Administrator",
+   "code": "CIR",
+   "zone": 4,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "Systems Analyst",
+   "code": "ICR",
+   "zone": 4,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "Network Administrator",
+   "code": "CRI",
+   "zone": 4,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "IT Support Specialist",
+   "code": "RCI",
+   "zone": 3,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "Data Analyst",
+   "code": "CIE",
+   "zone": 4,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "QA Tester",
+   "code": "CIR",
+   "zone": 4,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "Cartographer or GIS Analyst",
+   "code": "ICR",
+   "zone": 4,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "Robotics Technician",
+   "code": "RIC",
+   "zone": 3,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "Product Manager",
+   "code": "EIC",
+   "zone": 4,
+   "field": "Tech & Data"
+  },
+  {
+   "name": "Mechanical Engineer",
+   "code": "IRC",
+   "zone": 4,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Civil Engineer",
+   "code": "RIC",
+   "zone": 4,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Electrical Engineer",
+   "code": "IRC",
+   "zone": 4,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Aerospace Engineer",
+   "code": "IRC",
+   "zone": 4,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Biomedical Engineer",
+   "code": "IRC",
+   "zone": 4,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Environmental Engineer",
+   "code": "IRC",
+   "zone": 4,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Industrial Engineer",
+   "code": "ICE",
+   "zone": 4,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "CAD Drafter",
+   "code": "RCA",
+   "zone": 3,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Surveyor",
+   "code": "RCI",
+   "zone": 4,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Construction Manager",
+   "code": "ERC",
+   "zone": 4,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Electrician",
+   "code": "RIC",
+   "zone": 3,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Carpenter",
+   "code": "RCI",
+   "zone": 2,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Plumber",
+   "code": "RCI",
+   "zone": 3,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Welder",
+   "code": "RCI",
+   "zone": 2,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Automotive Technician",
+   "code": "RIC",
+   "zone": 3,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Aircraft Mechanic",
+   "code": "RCI",
+   "zone": 3,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Machinist",
+   "code": "RCI",
+   "zone": 3,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "HVAC Technician",
+   "code": "RCI",
+   "zone": 3,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Wind Turbine Technician",
+   "code": "RCI",
+   "zone": 3,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Solar Installer",
+   "code": "RCI",
+   "zone": 2,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Furniture Maker",
+   "code": "RAC",
+   "zone": 2,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Jeweler",
+   "code": "RAC",
+   "zone": 3,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Instrument Maker or Repairer",
+   "code": "RAI",
+   "zone": 3,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Watch Repairer",
+   "code": "RCI",
+   "zone": 3,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Building Inspector",
+   "code": "RCI",
+   "zone": 3,
+   "field": "Engineering & Trades"
+  },
+  {
+   "name": "Park Ranger or Naturalist",
+   "code": "SRA",
+   "zone": 4,
+   "field": "Nature & Outdoors"
+  },
+  {
+   "name": "Forester",
+   "code": "RIE",
+   "zone": 4,
+   "field": "Nature & Outdoors"
+  },
+  {
+   "name": "Farmer or Rancher",
+   "code": "REC",
+   "zone": 2,
+   "field": "Nature & Outdoors"
+  },
+  {
+   "name": "Landscaper or Gardener",
+   "code": "RCA",
+   "zone": 2,
+   "field": "Nature & Outdoors"
+  },
+  {
+   "name": "Veterinarian",
+   "code": "IRS",
+   "zone": 5,
+   "field": "Nature & Outdoors"
+  },
+  {
+   "name": "Veterinary Technician",
+   "code": "RIS",
+   "zone": 3,
+   "field": "Nature & Outdoors"
+  },
+  {
+   "name": "Animal Trainer",
+   "code": "RSE",
+   "zone": 2,
+   "field": "Nature & Outdoors"
+  },
+  {
+   "name": "Outdoor Guide",
+   "code": "RSE",
+   "zone": 2,
+   "field": "Nature & Outdoors"
+  },
+  {
+   "name": "Arborist",
+   "code": "RCI",
+   "zone": 2,
+   "field": "Nature & Outdoors"
+  },
+  {
+   "name": "Environmental Technician",
+   "code": "RIC",
+   "zone": 3,
+   "field": "Nature & Outdoors"
+  },
+  {
+   "name": "Brewer or Winemaker",
+   "code": "RIE",
+   "zone": 3,
+   "field": "Nature & Outdoors"
+  },
+  {
+   "name": "Registered Nurse",
+   "code": "SIC",
+   "zone": 3,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Physician",
+   "code": "ISR",
+   "zone": 5,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Physical Therapist",
+   "code": "SIR",
+   "zone": 5,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Occupational Therapist",
+   "code": "SIA",
+   "zone": 5,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Speech-Language Pathologist",
+   "code": "SIA",
+   "zone": 5,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Paramedic",
+   "code": "RSI",
+   "zone": 3,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Dental Hygienist",
+   "code": "SRC",
+   "zone": 3,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Pharmacist",
+   "code": "ICS",
+   "zone": 5,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Dietitian",
+   "code": "ISE",
+   "zone": 5,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Massage Therapist",
+   "code": "SRE",
+   "zone": 3,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Medical Lab Technologist",
+   "code": "IRC",
+   "zone": 4,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Radiologic Technologist",
+   "code": "RSC",
+   "zone": 3,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Mental Health Counselor",
+   "code": "SIA",
+   "zone": 5,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Art or Music Therapist",
+   "code": "SAI",
+   "zone": 5,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Personal Trainer",
+   "code": "SRE",
+   "zone": 3,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Midwife",
+   "code": "SIR",
+   "zone": 5,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Home Health Aide",
+   "code": "SRC",
+   "zone": 2,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Dentist",
+   "code": "IRS",
+   "zone": 5,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Genetic Counselor",
+   "code": "ISA",
+   "zone": 5,
+   "field": "Health & Care"
+  },
+  {
+   "name": "Elementary School Teacher",
+   "code": "SAC",
+   "zone": 4,
+   "field": "Education & Community"
+  },
+  {
+   "name": "High School Teacher",
+   "code": "SAE",
+   "zone": 4,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Professor",
+   "code": "SIA",
+   "zone": 5,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Special Education Teacher",
+   "code": "SAI",
+   "zone": 4,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Librarian",
+   "code": "CSE",
+   "zone": 5,
+   "field": "Education & Community"
+  },
+  {
+   "name": "School Counselor",
+   "code": "SAE",
+   "zone": 5,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Social Worker",
+   "code": "SEA",
+   "zone": 4,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Child Care Worker",
+   "code": "SAR",
+   "zone": 2,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Sports Coach",
+   "code": "SRE",
+   "zone": 4,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Instructional Designer",
+   "code": "SAI",
+   "zone": 5,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Tutor",
+   "code": "SIC",
+   "zone": 3,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Nonprofit Coordinator",
+   "code": "ESA",
+   "zone": 4,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Recreation Worker",
+   "code": "SEA",
+   "zone": 3,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Chaplain",
+   "code": "SAE",
+   "zone": 5,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Mediator",
+   "code": "SEI",
+   "zone": 5,
+   "field": "Education & Community"
+  },
+  {
+   "name": "Small Business Owner",
+   "code": "ECS",
+   "zone": 3,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Marketing Manager",
+   "code": "EAC",
+   "zone": 4,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Sales Representative",
+   "code": "ESC",
+   "zone": 2,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Real Estate Agent",
+   "code": "ECS",
+   "zone": 3,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Public Relations Specialist",
+   "code": "EAS",
+   "zone": 4,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Event Planner",
+   "code": "ECS",
+   "zone": 4,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Management Consultant",
+   "code": "EIC",
+   "zone": 4,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Human Resources Specialist",
+   "code": "SEC",
+   "zone": 4,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Fundraiser",
+   "code": "ESC",
+   "zone": 4,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Retail Buyer",
+   "code": "ECA",
+   "zone": 4,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Operations Manager",
+   "code": "ECR",
+   "zone": 4,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Project Manager",
+   "code": "ECI",
+   "zone": 4,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Social Media Manager",
+   "code": "EAS",
+   "zone": 4,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Restaurant Manager",
+   "code": "ECS",
+   "zone": 3,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Hotel Manager",
+   "code": "ECS",
+   "zone": 4,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Travel Agent",
+   "code": "ECS",
+   "zone": 3,
+   "field": "Business & Enterprise"
+  },
+  {
+   "name": "Accountant",
+   "code": "CEI",
+   "zone": 4,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Financial Analyst",
+   "code": "CIE",
+   "zone": 4,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Bookkeeper",
+   "code": "CES",
+   "zone": 3,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Actuary",
+   "code": "CIE",
+   "zone": 4,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Auditor",
+   "code": "CEI",
+   "zone": 4,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Financial Planner",
+   "code": "ECS",
+   "zone": 4,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Insurance Underwriter",
+   "code": "CEI",
+   "zone": 4,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Tax Preparer",
+   "code": "CES",
+   "zone": 3,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Executive Assistant",
+   "code": "CES",
+   "zone": 3,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Paralegal",
+   "code": "CIE",
+   "zone": 3,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Medical Records Specialist",
+   "code": "CIS",
+   "zone": 3,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Compliance Officer",
+   "code": "CIE",
+   "zone": 4,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Proofreader",
+   "code": "CAI",
+   "zone": 4,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Quality Inspector",
+   "code": "CRI",
+   "zone": 2,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Logistics Analyst",
+   "code": "CEI",
+   "zone": 4,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Dispatcher",
+   "code": "CER",
+   "zone": 2,
+   "field": "Finance & Administration"
+  },
+  {
+   "name": "Lawyer",
+   "code": "EIS",
+   "zone": 5,
+   "field": "Law & Public Service"
+  },
+  {
+   "name": "Police Officer",
+   "code": "RES",
+   "zone": 3,
+   "field": "Law & Public Service"
+  },
+  {
+   "name": "Detective",
+   "code": "EIC",
+   "zone": 3,
+   "field": "Law & Public Service"
+  },
+  {
+   "name": "Firefighter",
+   "code": "RSE",
+   "zone": 3,
+   "field": "Law & Public Service"
+  },
+  {
+   "name": "Policy Analyst",
+   "code": "IES",
+   "zone": 5,
+   "field": "Law & Public Service"
+  },
+  {
+   "name": "Emergency Management Director",
+   "code": "ESC",
+   "zone": 4,
+   "field": "Law & Public Service"
+  },
+  {
+   "name": "Intelligence Analyst",
+   "code": "ICE",
+   "zone": 4,
+   "field": "Law & Public Service"
+  },
+  {
+   "name": "Airline Pilot",
+   "code": "RIE",
+   "zone": 4,
+   "field": "Law & Public Service"
+  },
+  {
+   "name": "Air Traffic Controller",
+   "code": "ECR",
+   "zone": 3,
+   "field": "Law & Public Service"
+  },
+  {
+   "name": "Ship Officer",
+   "code": "REC",
+   "zone": 3,
+   "field": "Law & Public Service"
+  },
+  {
+   "name": "Train Driver",
+   "code": "RCE",
+   "zone": 2,
+   "field": "Law & Public Service"
+  },
+  {
+   "name": "Chef",
+   "code": "ERA",
+   "zone": 3,
+   "field": "Food & Hospitality"
+  },
+  {
+   "name": "Baker",
+   "code": "RAC",
+   "zone": 2,
+   "field": "Food & Hospitality"
+  },
+  {
+   "name": "Barista",
+   "code": "SER",
+   "zone": 1,
+   "field": "Food & Hospitality"
+  },
+  {
+   "name": "Bartender",
+   "code": "ESR",
+   "zone": 2,
+   "field": "Food & Hospitality"
+  },
+  {
+   "name": "Tour Guide",
+   "code": "SEA",
+   "zone": 3,
+   "field": "Food & Hospitality"
+  },
+  {
+   "name": "Flight Attendant",
+   "code": "ESC",
+   "zone": 2,
+   "field": "Food & Hospitality"
+  }
+ ],
+ "hobbies": [
+  {
+   "name": "Woodworking",
+   "code": "RAC",
+   "style": [
+    0,
+    -1,
+    0,
+    0
+   ],
+   "firstStep": "Build one small box from a single board."
+  },
+  {
+   "name": "Bike repair",
+   "code": "RIC",
+   "style": [
+    0,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Fix a flat and tune your own gears."
+  },
+  {
+   "name": "Vegetable gardening",
+   "code": "RIS",
+   "style": [
+    -1,
+    0,
+    -1,
+    -1
+   ],
+   "firstStep": "Grow one pot of herbs from seed."
+  },
+  {
+   "name": "Hiking",
+   "code": "RIS",
+   "style": [
+    1,
+    0,
+    -1,
+    -1
+   ],
+   "firstStep": "Pick a trail under 8 km and go this weekend."
+  },
+  {
+   "name": "Bouldering",
+   "code": "RSI",
+   "style": [
+    1,
+    1,
+    0,
+    0
+   ],
+   "firstStep": "Book an intro session at a climbing gym."
+  },
+  {
+   "name": "Sourdough baking",
+   "code": "RIA",
+   "style": [
+    -1,
+    -1,
+    0,
+    -1
+   ],
+   "firstStep": "Make a starter and feed it for a week."
+  },
+  {
+   "name": "Home brewing",
+   "code": "RIC",
+   "style": [
+    0,
+    0,
+    1,
+    0
+   ],
+   "firstStep": "Brew one small batch from a kit."
+  },
+  {
+   "name": "Car restoration",
+   "code": "RIC",
+   "style": [
+    -1,
+    0,
+    -1,
+    0
+   ],
+   "firstStep": "Do one job on your own car from a repair video."
+  },
+  {
+   "name": "Leathercraft",
+   "code": "RAC",
+   "style": [
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Stitch a card holder from a starter kit."
+  },
+  {
+   "name": "Fishing",
+   "code": "RIC",
+   "style": [
+    -1,
+    0,
+    -1,
+    -1
+   ],
+   "firstStep": "Borrow a rod and spend a morning at the nearest water."
+  },
+  {
+   "name": "Camping",
+   "code": "RSA",
+   "style": [
+    1,
+    0,
+    -1,
+    -1
+   ],
+   "firstStep": "Spend one night at a campsite within an hour of home."
+  },
+  {
+   "name": "Foraging",
+   "code": "RIA",
+   "style": [
+    1,
+    0,
+    -1,
+    0
+   ],
+   "firstStep": "Join one guided foraging walk."
+  },
+  {
+   "name": "Beekeeping",
+   "code": "RIC",
+   "style": [
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Visit a local beekeepers' open day."
+  },
+  {
+   "name": "Blacksmithing",
+   "code": "RAI",
+   "style": [
+    1,
+    0,
+    -1,
+    1
+   ],
+   "firstStep": "Take a one-day forging class."
+  },
+  {
+   "name": "Electronics tinkering",
+   "code": "RIC",
+   "style": [
+    1,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Make an LED blink with a starter board."
+  },
+  {
+   "name": "3D printing",
+   "code": "RIA",
+   "style": [
+    1,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Print one useful object at a library makerspace."
+  },
+  {
+   "name": "Furniture restoration",
+   "code": "RAC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Refinish one secondhand chair."
+  },
+  {
+   "name": "Watch repair",
+   "code": "RCI",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Take apart a cheap mechanical movement and reassemble it."
+  },
+  {
+   "name": "Fountain pen restoration",
+   "code": "RCA",
+   "style": [
+    -1,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Buy one worn pen and get it writing again."
+  },
+  {
+   "name": "Scale model building",
+   "code": "RCA",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Build one plastic kit start to finish."
+  },
+  {
+   "name": "Brick building",
+   "code": "RAC",
+   "style": [
+    0,
+    -1,
+    1,
+    -1
+   ],
+   "firstStep": "Build something with no instructions."
+  },
+  {
+   "name": "Home renovation DIY",
+   "code": "REC",
+   "style": [
+    0,
+    0,
+    1,
+    -1
+   ],
+   "firstStep": "Repaint one room properly, prep included."
+  },
+  {
+   "name": "Sailing",
+   "code": "RES",
+   "style": [
+    1,
+    1,
+    0,
+    -1
+   ],
+   "firstStep": "Take a taster session at a sailing club."
+  },
+  {
+   "name": "Kayaking",
+   "code": "RSI",
+   "style": [
+    1,
+    0,
+    0,
+    -1
+   ],
+   "firstStep": "Rent a kayak for two hours on flat water."
+  },
+  {
+   "name": "Cycling",
+   "code": "RSE",
+   "style": [
+    0,
+    0,
+    -1,
+    -1
+   ],
+   "firstStep": "Ride a 20 km loop you have never ridden."
+  },
+  {
+   "name": "Running",
+   "code": "RCS",
+   "style": [
+    -1,
+    0,
+    1,
+    -1
+   ],
+   "firstStep": "Follow a beginner plan for three weeks."
+  },
+  {
+   "name": "Martial arts",
+   "code": "RSC",
+   "style": [
+    0,
+    1,
+    -1,
+    0
+   ],
+   "firstStep": "Try a free first class at a local dojo."
+  },
+  {
+   "name": "Yoga",
+   "code": "RSA",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Do ten minutes every morning for a week."
+  },
+  {
+   "name": "Archery",
+   "code": "RCI",
+   "style": [
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Book a have-a-go session at an archery range."
+  },
+  {
+   "name": "Skateboarding",
+   "code": "RAS",
+   "style": [
+    1,
+    0,
+    0,
+    -1
+   ],
+   "firstStep": "Learn to push and turn in an empty car park."
+  },
+  {
+   "name": "Surfing",
+   "code": "RAS",
+   "style": [
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Take one group lesson on a beginner beach."
+  },
+  {
+   "name": "Swimming",
+   "code": "RCS",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Swim twice a week for a month."
+  },
+  {
+   "name": "Weightlifting",
+   "code": "RCE",
+   "style": [
+    -1,
+    0,
+    1,
+    0
+   ],
+   "firstStep": "Learn three basic lifts with a coach."
+  },
+  {
+   "name": "Scuba diving",
+   "code": "RIS",
+   "style": [
+    1,
+    1,
+    0,
+    1
+   ],
+   "firstStep": "Do a try-dive in a pool."
+  },
+  {
+   "name": "Cooking new cuisines",
+   "code": "RAS",
+   "style": [
+    1,
+    0,
+    -1,
+    -1
+   ],
+   "firstStep": "Cook three dishes from one unfamiliar cuisine."
+  },
+  {
+   "name": "Barbecue and smoking",
+   "code": "RSE",
+   "style": [
+    -1,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Smoke one cut low and slow for friends."
+  },
+  {
+   "name": "Fermentation",
+   "code": "RIC",
+   "style": [
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Make one jar of kimchi or sauerkraut."
+  },
+  {
+   "name": "Coffee brewing",
+   "code": "RIC",
+   "style": [
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Brew the same beans three ways and compare."
+  },
+  {
+   "name": "Candle and soap making",
+   "code": "RAC",
+   "style": [
+    0,
+    -1,
+    1,
+    -1
+   ],
+   "firstStep": "Make one batch from a starter kit."
+  },
+  {
+   "name": "Knitting or crochet",
+   "code": "RAC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "firstStep": "Make one scarf."
+  },
+  {
+   "name": "Sewing clothes",
+   "code": "RAC",
+   "style": [
+    0,
+    -1,
+    1,
+    -1
+   ],
+   "firstStep": "Sew one simple garment from a pattern."
+  },
+  {
+   "name": "Quilting",
+   "code": "RAC",
+   "style": [
+    -1,
+    0,
+    -1,
+    -1
+   ],
+   "firstStep": "Make a four-square patch."
+  },
+  {
+   "name": "Drone flying",
+   "code": "RIA",
+   "style": [
+    1,
+    -1,
+    0,
+    -1
+   ],
+   "firstStep": "Fly a small drone in an open field."
+  },
+  {
+   "name": "Amateur radio",
+   "code": "RIC",
+   "style": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "firstStep": "Listen in on a local club net."
+  },
+  {
+   "name": "Locksport",
+   "code": "RIC",
+   "style": [
+    1,
+    -1,
+    0,
+    1
+   ],
+   "firstStep": "Learn to open a clear practice lock."
+  },
+  {
+   "name": "Aquarium keeping",
+   "code": "RIC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Set up one small planted tank."
+  },
+  {
+   "name": "Houseplants",
+   "code": "RAC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "firstStep": "Propagate one cutting."
+  },
+  {
+   "name": "Bonsai",
+   "code": "RAC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Start with one nursery plant and prune it."
+  },
+  {
+   "name": "Dog training",
+   "code": "RSE",
+   "style": [
+    0,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Teach a dog one new trick this week."
+  },
+  {
+   "name": "Horse riding",
+   "code": "RSC",
+   "style": [
+    0,
+    0,
+    -1,
+    -1
+   ],
+   "firstStep": "Book a beginner lesson."
+  },
+  {
+   "name": "Geocaching",
+   "code": "RIS",
+   "style": [
+    1,
+    0,
+    1,
+    -1
+   ],
+   "firstStep": "Find three caches near home."
+  },
+  {
+   "name": "Whittling",
+   "code": "RAC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Carve one spoon from green wood."
+  },
+  {
+   "name": "Bookbinding",
+   "code": "RAC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Sew one small notebook."
+  },
+  {
+   "name": "Bushcraft",
+   "code": "RIC",
+   "style": [
+    1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Learn to light a fire without matches."
+  },
+  {
+   "name": "Skiing or snowboarding",
+   "code": "RSE",
+   "style": [
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Take one beginner lesson."
+  },
+  {
+   "name": "Pickup team sports",
+   "code": "RSE",
+   "style": [
+    0,
+    1,
+    0,
+    -1
+   ],
+   "firstStep": "Join one casual game this month."
+  },
+  {
+   "name": "Racket sports",
+   "code": "RSE",
+   "style": [
+    0,
+    1,
+    0,
+    -1
+   ],
+   "firstStep": "Book a court with a friend."
+  },
+  {
+   "name": "Trail maintenance crews",
+   "code": "RSC",
+   "style": [
+    0,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Join one volunteer trail day."
+  },
+  {
+   "name": "Repair café volunteering",
+   "code": "RSI",
+   "style": [
+    0,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Bring one broken thing, then offer to help."
+  },
+  {
+   "name": "Amateur astronomy",
+   "code": "IRA",
+   "style": [
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Find a dark site and go on a moonless night."
+  },
+  {
+   "name": "Chess",
+   "code": "ICE",
+   "style": [
+    0,
+    0,
+    1,
+    0
+   ],
+   "firstStep": "Play ten online games and review each one."
+  },
+  {
+   "name": "Cryptic crosswords",
+   "code": "ICA",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Solve one with the answers open beside you."
+  },
+  {
+   "name": "Logic puzzles",
+   "code": "ICR",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Do one hard puzzle a day for a week."
+  },
+  {
+   "name": "Coding side projects",
+   "code": "ICR",
+   "style": [
+    1,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Automate one small annoying task."
+  },
+  {
+   "name": "Learning a language",
+   "code": "ISA",
+   "style": [
+    1,
+    0,
+    -1,
+    0
+   ],
+   "firstStep": "Learn 50 words and have one short exchange."
+  },
+  {
+   "name": "Popular science reading",
+   "code": "IAC",
+   "style": [
+    1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Read one book outside your field."
+  },
+  {
+   "name": "Genealogy",
+   "code": "ICS",
+   "style": [
+    -1,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Trace one branch back three generations."
+  },
+  {
+   "name": "Citizen science",
+   "code": "IRS",
+   "style": [
+    1,
+    0,
+    -1,
+    0
+   ],
+   "firstStep": "Log ten observations on a nature app."
+  },
+  {
+   "name": "Rock and mineral collecting",
+   "code": "IRC",
+   "style": [
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Identify five stones from one walk."
+  },
+  {
+   "name": "Fossil hunting",
+   "code": "IRA",
+   "style": [
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Visit one known fossil beach or quarry."
+  },
+  {
+   "name": "Mushroom identification",
+   "code": "IRC",
+   "style": [
+    1,
+    0,
+    -1,
+    1
+   ],
+   "firstStep": "Join a guided foray and identify three species."
+  },
+  {
+   "name": "Weather watching",
+   "code": "IRC",
+   "style": [
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Keep a two-week weather log."
+  },
+  {
+   "name": "Data visualisation",
+   "code": "ICA",
+   "style": [
+    1,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Chart one public dataset about your city."
+  },
+  {
+   "name": "Philosophy reading group",
+   "code": "ISA",
+   "style": [
+    0,
+    1,
+    -1,
+    1
+   ],
+   "firstStep": "Read one short essay and discuss it with someone."
+  },
+  {
+   "name": "History deep-dives",
+   "code": "IAC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Pick one year and read everything about it."
+  },
+  {
+   "name": "Wikipedia editing",
+   "code": "ICS",
+   "style": [
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Fix and source one stub article."
+  },
+  {
+   "name": "Map collecting",
+   "code": "IAC",
+   "style": [
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Hand-draw a map of your neighbourhood."
+  },
+  {
+   "name": "Microscopy",
+   "code": "IRC",
+   "style": [
+    1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Look at pond water under a cheap microscope."
+  },
+  {
+   "name": "Escape rooms",
+   "code": "IES",
+   "style": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "firstStep": "Book one with three friends."
+  },
+  {
+   "name": "Strategy board games",
+   "code": "IEC",
+   "style": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "firstStep": "Host one game night."
+  },
+  {
+   "name": "Speedcubing",
+   "code": "ICR",
+   "style": [
+    -1,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Learn the beginner method."
+  },
+  {
+   "name": "Quiz nights",
+   "code": "ISE",
+   "style": [
+    0,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Join a pub quiz team."
+  },
+  {
+   "name": "Lecture series and podcasts",
+   "code": "IAS",
+   "style": [
+    1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Finish one full lecture course."
+  },
+  {
+   "name": "Home lab and self-hosting",
+   "code": "ICR",
+   "style": [
+    0,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Set up one service on an old computer."
+  },
+  {
+   "name": "Competitive programming",
+   "code": "ICE",
+   "style": [
+    0,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Solve five beginner problems."
+  },
+  {
+   "name": "Constructed languages",
+   "code": "IAC",
+   "style": [
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Sketch the sounds and ten words of a language."
+  },
+  {
+   "name": "Unsolved-case research",
+   "code": "IAC",
+   "style": [
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Read the primary sources on one cold case."
+  },
+  {
+   "name": "Tide pooling",
+   "code": "IRA",
+   "style": [
+    1,
+    0,
+    -1,
+    -1
+   ],
+   "firstStep": "Visit a rocky shore at low tide."
+  },
+  {
+   "name": "Plant pressing",
+   "code": "IRC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Press and label ten local plants."
+  },
+  {
+   "name": "Kitchen chemistry",
+   "code": "IRA",
+   "style": [
+    1,
+    0,
+    -1,
+    0
+   ],
+   "firstStep": "Run three safe classic experiments."
+  },
+  {
+   "name": "Robotics kits",
+   "code": "IRC",
+   "style": [
+    1,
+    0,
+    1,
+    0
+   ],
+   "firstStep": "Build one line-following robot."
+  },
+  {
+   "name": "Astrophotography",
+   "code": "IAR",
+   "style": [
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Photograph the Moon with your phone."
+  },
+  {
+   "name": "Go",
+   "code": "ICA",
+   "style": [
+    0,
+    0,
+    -1,
+    0
+   ],
+   "firstStep": "Learn the rules on a 9x9 board."
+  },
+  {
+   "name": "Sketching",
+   "code": "ARI",
+   "style": [
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Fill one page a day for a week."
+  },
+  {
+   "name": "Watercolour",
+   "code": "ARI",
+   "style": [
+    0,
+    -1,
+    -1,
+    -1
+   ],
+   "firstStep": "Paint the same view three times."
+  },
+  {
+   "name": "Film photography",
+   "code": "ARI",
+   "style": [
+    0,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Shoot one roll and have it developed."
+  },
+  {
+   "name": "Digital illustration",
+   "code": "AIR",
+   "style": [
+    1,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Redraw one favorite image your own way."
+  },
+  {
+   "name": "Creative writing",
+   "code": "AIS",
+   "style": [
+    0,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Write a 500-word story."
+  },
+  {
+   "name": "Poetry",
+   "code": "AIS",
+   "style": [
+    0,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Write one poem a day for a week."
+  },
+  {
+   "name": "Songwriting",
+   "code": "AES",
+   "style": [
+    0,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Write one verse and a chorus."
+  },
+  {
+   "name": "Playing an instrument",
+   "code": "ARS",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Learn one song all the way through."
+  },
+  {
+   "name": "Music production",
+   "code": "AIR",
+   "style": [
+    1,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Make a one-minute track in free software."
+  },
+  {
+   "name": "Choir singing",
+   "code": "ASC",
+   "style": [
+    -1,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Go to one open rehearsal."
+  },
+  {
+   "name": "Community theatre",
+   "code": "ASE",
+   "style": [
+    0,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Audition, or volunteer backstage."
+  },
+  {
+   "name": "Improv",
+   "code": "ASE",
+   "style": [
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Take a drop-in class."
+  },
+  {
+   "name": "Stand-up comedy",
+   "code": "AES",
+   "style": [
+    1,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Write three minutes and try an open mic."
+  },
+  {
+   "name": "Dance classes",
+   "code": "ARS",
+   "style": [
+    0,
+    1,
+    -1,
+    0
+   ],
+   "firstStep": "Try one beginner class."
+  },
+  {
+   "name": "Pottery",
+   "code": "ARS",
+   "style": [
+    0,
+    0,
+    -1,
+    -1
+   ],
+   "firstStep": "Take a wheel-throwing taster."
+  },
+  {
+   "name": "Calligraphy",
+   "code": "ARC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Practise one alphabet with a brush pen."
+  },
+  {
+   "name": "Zines and collage",
+   "code": "AIR",
+   "style": [
+    1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Make an eight-page zine from one sheet."
+  },
+  {
+   "name": "Short filmmaking",
+   "code": "AER",
+   "style": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "firstStep": "Shoot a one-minute film on your phone."
+  },
+  {
+   "name": "Video editing",
+   "code": "AIC",
+   "style": [
+    0,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Cut a 60-second edit from old clips."
+  },
+  {
+   "name": "Podcasting",
+   "code": "AES",
+   "style": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "firstStep": "Record a ten-minute pilot."
+  },
+  {
+   "name": "Newsletter writing",
+   "code": "AEI",
+   "style": [
+    0,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Send one issue to five friends."
+  },
+  {
+   "name": "Thrift styling",
+   "code": "AES",
+   "style": [
+    1,
+    0,
+    1,
+    -1
+   ],
+   "firstStep": "Build one outfit from secondhand finds."
+  },
+  {
+   "name": "Interior styling",
+   "code": "AER",
+   "style": [
+    0,
+    -1,
+    1,
+    -1
+   ],
+   "firstStep": "Restyle one shelf or corner."
+  },
+  {
+   "name": "Cosplay",
+   "code": "ARS",
+   "style": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "firstStep": "Make one prop."
+  },
+  {
+   "name": "Miniature painting",
+   "code": "ARC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Paint one figure."
+  },
+  {
+   "name": "Tabletop game mastering",
+   "code": "ASE",
+   "style": [
+    1,
+    1,
+    -1,
+    1
+   ],
+   "firstStep": "Run a one-shot for three friends."
+  },
+  {
+   "name": "Worldbuilding",
+   "code": "AIC",
+   "style": [
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Draw a map and write one page of history."
+  },
+  {
+   "name": "Game design",
+   "code": "AIE",
+   "style": [
+    1,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Build a tiny branching story in Twine."
+  },
+  {
+   "name": "Lettering",
+   "code": "ARC",
+   "style": [
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Letter one quote by hand."
+  },
+  {
+   "name": "Mural and street art",
+   "code": "ARE",
+   "style": [
+    1,
+    1,
+    0,
+    1
+   ],
+   "firstStep": "Paint at a legal wall."
+  },
+  {
+   "name": "Field recording",
+   "code": "AIR",
+   "style": [
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Record ten minutes of one place and listen back."
+  },
+  {
+   "name": "DJing",
+   "code": "AES",
+   "style": [
+    1,
+    1,
+    0,
+    1
+   ],
+   "firstStep": "Mix two tracks in free software."
+  },
+  {
+   "name": "Linocut printmaking",
+   "code": "ARC",
+   "style": [
+    0,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Carve and print one small block."
+  },
+  {
+   "name": "Jewellery making",
+   "code": "ARE",
+   "style": [
+    0,
+    -1,
+    1,
+    -1
+   ],
+   "firstStep": "Make one pair of earrings."
+  },
+  {
+   "name": "Flower arranging",
+   "code": "ARS",
+   "style": [
+    0,
+    -1,
+    -1,
+    -1
+   ],
+   "firstStep": "Arrange one bunch three ways."
+  },
+  {
+   "name": "Perfume blending",
+   "code": "AIR",
+   "style": [
+    1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Learn five single-note materials by smell."
+  },
+  {
+   "name": "Photo walks",
+   "code": "ARS",
+   "style": [
+    1,
+    0,
+    -1,
+    -1
+   ],
+   "firstStep": "Shoot one street at one time of day."
+  },
+  {
+   "name": "Stop-motion animation",
+   "code": "ARI",
+   "style": [
+    0,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Animate ten seconds."
+  },
+  {
+   "name": "Journaling",
+   "code": "ACS",
+   "style": [
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "firstStep": "Write three pages each morning for a week."
+  },
+  {
+   "name": "Film criticism",
+   "code": "AIC",
+   "style": [
+    0,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Review five films in 100 words each."
+  },
+  {
+   "name": "Gallery hopping",
+   "code": "AIS",
+   "style": [
+    1,
+    0,
+    -1,
+    -1
+   ],
+   "firstStep": "Visit three small galleries in one afternoon."
+  },
+  {
+   "name": "Cake decorating",
+   "code": "ARC",
+   "style": [
+    0,
+    -1,
+    1,
+    -1
+   ],
+   "firstStep": "Decorate one cake with a technique you have not tried."
+  },
+  {
+   "name": "Screenwriting",
+   "code": "AIE",
+   "style": [
+    0,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Write a five-page scene."
+  },
+  {
+   "name": "Creative coding",
+   "code": "AIC",
+   "style": [
+    1,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Make one generative sketch."
+  },
+  {
+   "name": "Urban exploration photography",
+   "code": "ARI",
+   "style": [
+    1,
+    -1,
+    0,
+    1
+   ],
+   "firstStep": "Photograph one overlooked structure at blue hour."
+  },
+  {
+   "name": "Embroidery",
+   "code": "ARC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Stitch one small design."
+  },
+  {
+   "name": "Food bank volunteering",
+   "code": "SRC",
+   "style": [
+    0,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Sign up for one shift."
+  },
+  {
+   "name": "Tutoring",
+   "code": "SIA",
+   "style": [
+    0,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Help one student with one subject."
+  },
+  {
+   "name": "Hosting dinners",
+   "code": "SAE",
+   "style": [
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Cook for four people this month."
+  },
+  {
+   "name": "Book club",
+   "code": "SIA",
+   "style": [
+    -1,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Start one with two friends and one book."
+  },
+  {
+   "name": "Helpline volunteering",
+   "code": "SIC",
+   "style": [
+    0,
+    1,
+    -1,
+    0
+   ],
+   "firstStep": "Attend an information evening."
+  },
+  {
+   "name": "Coaching youth sports",
+   "code": "SRE",
+   "style": [
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Offer to assist at one practice."
+  },
+  {
+   "name": "Animal shelter volunteering",
+   "code": "SRC",
+   "style": [
+    0,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Walk dogs for one morning."
+  },
+  {
+   "name": "Community gardening",
+   "code": "SRA",
+   "style": [
+    -1,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Join one work day."
+  },
+  {
+   "name": "Teaching a skill-share",
+   "code": "SAE",
+   "style": [
+    0,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Teach friends one thing you know in an hour."
+  },
+  {
+   "name": "Language exchange",
+   "code": "SIA",
+   "style": [
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Do one 30-minute swap."
+  },
+  {
+   "name": "Youth mentoring",
+   "code": "SEA",
+   "style": [
+    0,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Apply to one mentoring program."
+  },
+  {
+   "name": "Elder visiting",
+   "code": "SAC",
+   "style": [
+    0,
+    1,
+    -1,
+    0
+   ],
+   "firstStep": "Visit one neighbour regularly."
+  },
+  {
+   "name": "Hiking clubs",
+   "code": "SRE",
+   "style": [
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Join one group walk."
+  },
+  {
+   "name": "Letter writing",
+   "code": "SAC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "firstStep": "Write one real letter."
+  },
+  {
+   "name": "Discussion salons",
+   "code": "SIA",
+   "style": [
+    1,
+    1,
+    -1,
+    0
+   ],
+   "firstStep": "Host one evening around one question."
+  },
+  {
+   "name": "First-aid volunteering",
+   "code": "SRI",
+   "style": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "firstStep": "Take a first-aid course."
+  },
+  {
+   "name": "Neighbourhood association",
+   "code": "SEC",
+   "style": [
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Go to one meeting."
+  },
+  {
+   "name": "Newcomer support",
+   "code": "SEA",
+   "style": [
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Volunteer at one welcome event."
+  },
+  {
+   "name": "Storytelling nights",
+   "code": "SAE",
+   "style": [
+    1,
+    1,
+    -1,
+    0
+   ],
+   "firstStep": "Tell one five-minute true story."
+  },
+  {
+   "name": "Museum guiding",
+   "code": "SAI",
+   "style": [
+    0,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Ask a small museum about volunteering."
+  },
+  {
+   "name": "Social dancing",
+   "code": "SAR",
+   "style": [
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "firstStep": "Go to one beginners' social."
+  },
+  {
+   "name": "Selling at markets",
+   "code": "ECA",
+   "style": [
+    0,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Book one stall and sell ten things."
+  },
+  {
+   "name": "Thrift flipping",
+   "code": "ECR",
+   "style": [
+    1,
+    0,
+    1,
+    0
+   ],
+   "firstStep": "Buy one item, clean it up and resell it."
+  },
+  {
+   "name": "Starting a side business",
+   "code": "ECI",
+   "style": [
+    1,
+    0,
+    1,
+    0
+   ],
+   "firstStep": "Get one paying customer."
+  },
+  {
+   "name": "Public speaking clubs",
+   "code": "ESA",
+   "style": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "firstStep": "Give one prepared talk."
+  },
+  {
+   "name": "Organizing meetups",
+   "code": "ESC",
+   "style": [
+    0,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Host one meetup for ten people."
+  },
+  {
+   "name": "Fundraising",
+   "code": "ESC",
+   "style": [
+    0,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Raise a small target for one cause."
+  },
+  {
+   "name": "Running a club",
+   "code": "ESC",
+   "style": [
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Volunteer for one committee role."
+  },
+  {
+   "name": "Poker nights",
+   "code": "ECI",
+   "style": [
+    0,
+    1,
+    1,
+    1
+   ],
+   "firstStep": "Host a low-stakes home game."
+  },
+  {
+   "name": "Fantasy sports",
+   "code": "ECI",
+   "style": [
+    0,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Run one league with friends."
+  },
+  {
+   "name": "Local campaigning",
+   "code": "ESA",
+   "style": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "firstStep": "Volunteer on one local campaign."
+  },
+  {
+   "name": "Streaming and content creation",
+   "code": "EAS",
+   "style": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "firstStep": "Post one short video a week for a month."
+  },
+  {
+   "name": "Hackathons",
+   "code": "EIR",
+   "style": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "firstStep": "Join one weekend event."
+  },
+  {
+   "name": "Collecting to trade",
+   "code": "ECA",
+   "style": [
+    0,
+    0,
+    1,
+    0
+   ],
+   "firstStep": "Buy, research and trade one collectible."
+  },
+  {
+   "name": "City tour leading",
+   "code": "ESA",
+   "style": [
+    0,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Give friends a one-hour tour of your area."
+  },
+  {
+   "name": "Model UN and mock trial",
+   "code": "EIS",
+   "style": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "firstStep": "Join one session."
+  },
+  {
+   "name": "Rec league captaining",
+   "code": "ERS",
+   "style": [
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Organize one team."
+  },
+  {
+   "name": "Crowdfunding a project",
+   "code": "EAC",
+   "style": [
+    1,
+    0,
+    1,
+    0
+   ],
+   "firstStep": "Draft a campaign page for one idea."
+  },
+  {
+   "name": "Pop-up food stall",
+   "code": "ERA",
+   "style": [
+    1,
+    1,
+    1,
+    -1
+   ],
+   "firstStep": "Sell one dish at one event."
+  },
+  {
+   "name": "Collecting",
+   "code": "CRI",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Start one small, well-defined collection."
+  },
+  {
+   "name": "Budget spreadsheets",
+   "code": "CEI",
+   "style": [
+    -1,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Track one month of spending."
+  },
+  {
+   "name": "Bullet journaling",
+   "code": "CAS",
+   "style": [
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "firstStep": "Set up one month."
+  },
+  {
+   "name": "Home organizing",
+   "code": "CRE",
+   "style": [
+    -1,
+    -1,
+    1,
+    -1
+   ],
+   "firstStep": "Reorganize one cupboard completely."
+  },
+  {
+   "name": "Trip planning",
+   "code": "CES",
+   "style": [
+    1,
+    0,
+    1,
+    -1
+   ],
+   "firstStep": "Plan a full weekend itinerary for someone else."
+  },
+  {
+   "name": "Cataloguing a collection",
+   "code": "CAI",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Catalogue 50 of your books or records."
+  },
+  {
+   "name": "Archive transcription",
+   "code": "CIS",
+   "style": [
+    0,
+    -1,
+    -1,
+    1
+   ],
+   "firstStep": "Transcribe ten pages for an online archive."
+  },
+  {
+   "name": "Jigsaw puzzles",
+   "code": "CRA",
+   "style": [
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "firstStep": "Finish one 1000-piece puzzle."
+  },
+  {
+   "name": "Cross-stitch",
+   "code": "CRA",
+   "style": [
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "firstStep": "Finish one small kit."
+  },
+  {
+   "name": "Model railways",
+   "code": "CRI",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Visit a club open day."
+  },
+  {
+   "name": "Photo archiving",
+   "code": "CIA",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Sort and label one year of photos."
+  },
+  {
+   "name": "Meal prepping",
+   "code": "CRE",
+   "style": [
+    -1,
+    -1,
+    1,
+    -1
+   ],
+   "firstStep": "Prep five lunches on a Sunday."
+  },
+  {
+   "name": "Transit and timetable study",
+   "code": "CIR",
+   "style": [
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Plan the fastest route through every line in your city."
+  },
+  {
+   "name": "Completionist travel",
+   "code": "CRI",
+   "style": [
+    1,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Visit every station or district in one area."
+  },
+  {
+   "name": "Volunteer proofreading",
+   "code": "CAI",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Proofread a few pages for a public-domain book project."
+  },
+  {
+   "name": "Sports statistics",
+   "code": "CIE",
+   "style": [
+    0,
+    -1,
+    1,
+    0
+   ],
+   "firstStep": "Build one stats table for your team."
+  },
+  {
+   "name": "Club treasurer",
+   "code": "CES",
+   "style": [
+    -1,
+    1,
+    1,
+    0
+   ],
+   "firstStep": "Offer to keep the books for one group."
+  },
+  {
+   "name": "Origami",
+   "code": "CRA",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "firstStep": "Fold one model until it is clean."
+  },
+  {
+   "name": "Travel points planning",
+   "code": "CEI",
+   "style": [
+    1,
+    0,
+    1,
+    0
+   ],
+   "firstStep": "Plan one trip paid for with points."
+  }
+ ],
+ "niches": [
+  {
+   "name": "Book and paper conservation",
+   "code": "RAC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    1
+   ],
+   "what": "Repairing rare books, maps and documents so they survive another century.",
+   "firstStep": "Take a weekend bookbinding class and learn to sew a signature."
+  },
+  {
+   "name": "Field recording for sound libraries",
+   "code": "AIR",
+   "style": [
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "what": "Capturing real-world sound that films and games license.",
+   "firstStep": "Record ten minutes of one place and listen back with headphones."
+  },
+  {
+   "name": "Game narrative design",
+   "code": "AIE",
+   "style": [
+    1,
+    0,
+    1,
+    0
+   ],
+   "what": "Writing branching stories, dialogue and lore that players move through.",
+   "firstStep": "Build a tiny branching story in Twine in one evening."
+  },
+  {
+   "name": "Escape room and puzzle design",
+   "code": "IAE",
+   "style": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "what": "Designing physical and logical puzzles a group solves against a clock.",
+   "firstStep": "Design one three-step puzzle for friends at your next dinner."
+  },
+  {
+   "name": "Typeface revival",
+   "code": "ARC",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "what": "Redrawing and digitizing historical typefaces from old printed specimens.",
+   "firstStep": "Trace five letters from an old book and try them in a free font editor."
+  },
+  {
+   "name": "Data journalism",
+   "code": "IAE",
+   "style": [
+    1,
+    0,
+    1,
+    0
+   ],
+   "what": "Finding stories hidden in public datasets and turning them into charts and articles.",
+   "firstStep": "Pick one open dataset about your city and answer a single question with it."
+  },
+  {
+   "name": "Speculative design",
+   "code": "AIE",
+   "style": [
+    1,
+    0,
+    -1,
+    1
+   ],
+   "what": "Making objects and scenarios from possible futures to provoke debate about the present.",
+   "firstStep": "Sketch an everyday object as it might look in 2060, and write its label."
+  },
+  {
+   "name": "Independent perfumery",
+   "code": "AIR",
+   "style": [
+    1,
+    -1,
+    -1,
+    0
+   ],
+   "what": "Composing scents from raw materials, often in small batches.",
+   "firstStep": "Buy a beginner's kit of single-note materials and learn five by smell."
+  },
+  {
+   "name": "Watch and clock restoration",
+   "code": "RCI",
+   "style": [
+    -1,
+    -1,
+    -1,
+    0
+   ],
+   "what": "Servicing and restoring mechanical movements.",
+   "firstStep": "Take apart a cheap mechanical movement and put it back together."
+  },
+  {
+   "name": "Archival research for film and podcasts",
+   "code": "ICA",
+   "style": [
+    0,
+    -1,
+    -1,
+    1
+   ],
+   "what": "Digging through archives to find the footage, letters and facts behind a story.",
+   "firstStep": "Visit a local archive and ask what they hold that nobody requests."
+  },
+  {
+   "name": "Foraging and wild fermentation",
+   "code": "RIA",
+   "style": [
+    1,
+    0,
+    -1,
+    0
+   ],
+   "what": "Finding edible plants and turning them into ferments, vinegars and sodas.",
+   "firstStep": "Join one guided foraging walk and make one small ferment."
+  },
+  {
+   "name": "Urban exploration photography",
+   "code": "ARI",
+   "style": [
+    1,
+    -1,
+    0,
+    1
+   ],
+   "what": "Documenting forgotten buildings, infrastructure and in-between places.",
+   "firstStep": "Photograph one overlooked structure in your area at blue hour."
+  },
+  {
+   "name": "Makerspace and community workshop organizing",
+   "code": "SRE",
+   "style": [
+    0,
+    1,
+    0,
+    -1
+   ],
+   "what": "Running shared workshops where people learn to make and repair.",
+   "firstStep": "Volunteer for one repair café session."
+  },
+  {
+   "name": "Food styling",
+   "code": "ARE",
+   "style": [
+    0,
+    1,
+    1,
+    -1
+   ],
+   "what": "Preparing and arranging food so it photographs the way it tastes.",
+   "firstStep": "Style and shoot one dish in window light, five different ways."
+  },
+  {
+   "name": "Map and cartographic design",
+   "code": "AIC",
+   "style": [
+    1,
+    -1,
+    0,
+    0
+   ],
+   "what": "Designing maps that are both accurate and beautiful.",
+   "firstStep": "Hand-draw a map of your neighbourhood with only the places you care about."
+  },
+  {
+   "name": "Tea or coffee sensory evaluation",
+   "code": "ICR",
+   "style": [
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "what": "Professional tasting and grading of tea or specialty coffee.",
+   "firstStep": "Cup three single-origin coffees side by side and take notes."
+  },
+  {
+   "name": "Rare book and ephemera dealing",
+   "code": "ECA",
+   "style": [
+    -1,
+    0,
+    1,
+    1
+   ],
+   "what": "Finding, researching and selling old books, posters, letters and printed oddities.",
+   "firstStep": "Spend an afternoon in secondhand shops looking for one thing worth researching."
+  },
+  {
+   "name": "Natural dyeing and textile craft",
+   "code": "RAC",
+   "style": [
+    -1,
+    0,
+    -1,
+    -1
+   ],
+   "what": "Colouring fabric with plants, roots and minerals.",
+   "firstStep": "Dye one cotton scarf with onion skins."
+  },
+  {
+   "name": "Tabletop RPG design and game mastering",
+   "code": "ASE",
+   "style": [
+    1,
+    1,
+    -1,
+    1
+   ],
+   "what": "Writing adventures and running them for a table of players.",
+   "firstStep": "Run a one-shot adventure for three friends."
+  },
+  {
+   "name": "Science explainer videos",
+   "code": "IAS",
+   "style": [
+    1,
+    1,
+    1,
+    -1
+   ],
+   "what": "Turning hard ideas into short visual explanations.",
+   "firstStep": "Explain one concept you love in a 90-second video."
+  },
+  {
+   "name": "Small-garden and native-plant design",
+   "code": "RAI",
+   "style": [
+    0,
+    0,
+    -1,
+    -1
+   ],
+   "what": "Designing small outdoor spaces around local plants and wildlife.",
+   "firstStep": "Plant one container with species native to your area."
+  },
+  {
+   "name": "Oral history collecting",
+   "code": "SIA",
+   "style": [
+    0,
+    1,
+    -1,
+    1
+   ],
+   "what": "Recording and preserving people's spoken memories.",
+   "firstStep": "Record a 30-minute conversation with an older relative about one year of their life."
+  },
+  {
+   "name": "Lighting design for theatre and spaces",
+   "code": "ARE",
+   "style": [
+    1,
+    0,
+    1,
+    1
+   ],
+   "what": "Shaping how a room or a stage feels with light alone.",
+   "firstStep": "Relight one room at home using only lamps you already own."
+  },
+  {
+   "name": "Alternate reality game design",
+   "code": "AIE",
+   "style": [
+    1,
+    0,
+    1,
+    1
+   ],
+   "what": "Hiding a story across websites, objects and real places for players to uncover.",
+   "firstStep": "Hide a three-clue trail for a friend across a website, a note and a place."
+  },
+  {
+   "name": "Curating a niche newsletter",
+   "code": "AEC",
+   "style": [
+    1,
+    0,
+    1,
+    0
+   ],
+   "what": "Finding the best of one small corner of the world and sending it to people who care.",
+   "firstStep": "Send one issue about your obscure interest to five friends."
+  },
+  {
+   "name": "Natural wine and sommelier work",
+   "code": "ESA",
+   "style": [
+    1,
+    1,
+    0,
+    0
+   ],
+   "what": "Tasting, sourcing and recommending wines, often from small producers.",
+   "firstStep": "Taste three natural wines side by side and describe each in one line."
+  },
+  {
+   "name": "Dark-sky tourism guiding",
+   "code": "SIR",
+   "style": [
+    1,
+    1,
+    -1,
+    1
+   ],
+   "what": "Leading night-sky walks and astronomy tours in low-light areas.",
+   "firstStep": "Find your nearest dark-sky site and go on a moonless night."
+  }
+ ]
+}

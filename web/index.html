@@ -1,0 +1,1224 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body><title>What You Like</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow column like a test booklet; an inkblot built from your answers sits beside each question and becomes the cover of your reading. */
+:root{
+  --paper:#EDEFF4; --card:#F9FAFC; --ink:#1E1C52; --muted:#5A5E7C; --line:#D3D6E3; --accent:#B3305F; --accent-soft:#F3DCE5;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#111230; --card:#191B3F; --ink:#DCDAF7; --muted:#9C9EC4; --line:#2D3063; --accent:#F07DAA; --accent-soft:#3A2146; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#111230; --card:#191B3F; --ink:#DCDAF7; --muted:#9C9EC4; --line:#2D3063; --accent:#F07DAA; --accent-soft:#3A2146; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper); color:var(--ink); font-family:var(--body); font-size:17px; line-height:1.55; padding-inline:16px; -webkit-font-smoothing:antialiased}
+.wrap{max-width:680px; margin:0 auto; padding-block:28px 64px}
+.wrap.wide{max-width:920px}
+h1,h2,h3{font-family:var(--display); text-wrap:balance; margin:0; letter-spacing:-0.01em}
+p{margin:0}
+button{font:inherit; color:inherit}
+.eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+
+/* top bar */
+.bar{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:28px; flex-wrap:wrap}
+.brand{font-family:var(--display); font-weight:800; font-size:18px}
+.steps{display:flex; gap:6px; align-items:center}
+.steps i{display:block; width:22px; height:6px; border-radius:3px; background:var(--line); transition:background .3s}
+.steps i.done{background:var(--ink)}
+.steps i.now{background:var(--accent)}
+
+/* intro */
+.intro{display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:32px; align-items:center}
+.intro h1{font-size:clamp(44px,9vw,76px); font-weight:800; line-height:.95}
+.lede{font-size:19px; margin-top:18px; max-width:34em}
+.facts{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:22px; font-family:var(--mono); font-size:13px; color:var(--muted)}
+.facts b{color:var(--ink); font-weight:500}
+.fine{margin-top:22px; font-size:14px; color:var(--muted); max-width:36em; border-top:1px solid var(--line); padding-top:14px}
+.intro canvas{width:220px; height:220px; max-width:100%}
+@media (max-width:620px){.intro{grid-template-columns:1fr}.intro canvas{width:160px;height:160px;order:-1}}
+
+.btn{display:inline-flex; align-items:center; gap:10px; border:0; background:var(--ink); color:var(--card); padding:13px 22px; border-radius:999px; font-family:var(--display); font-weight:600; font-size:16px; cursor:pointer}
+.btn:hover{background:var(--accent)}
+.btn.ghost{background:transparent; color:var(--ink); border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--ink); background:transparent}
+.btn:focus-visible,.opt:focus-visible,textarea:focus-visible,.link:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.row{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+
+/* question */
+.q{display:grid; grid-template-columns:minmax(0,1fr) 96px; gap:8px 24px; align-items:start}
+.q canvas{width:96px; height:96px; grid-column:2; grid-row:1 / span 2}
+.q .eyebrow{grid-column:1}
+.prompt{grid-column:1; font-size:clamp(26px,5vw,34px); font-weight:600; line-height:1.15; margin-top:6px}
+.opts{display:grid; gap:10px; margin-top:26px}
+.opt{display:flex; gap:14px; align-items:baseline; width:100%; text-align:left; background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:15px 18px; cursor:pointer; font-size:18px; transition:border-color .15s, transform .15s}
+.opt:hover{border-color:var(--ink)}
+.opt.picked{border-color:var(--accent); background:var(--accent-soft)}
+.key{font-family:var(--mono); font-size:12px; color:var(--muted); border:1px solid var(--line); border-radius:4px; padding:1px 6px; flex:none}
+.timer{height:3px; background:var(--line); border-radius:2px; margin-top:22px; overflow:hidden}
+.timer span{display:block; height:100%; width:100%; background:var(--accent); transform-origin:left; animation:drain 8s linear forwards}
+@keyframes drain{to{transform:scaleX(0)}}
+.gut{font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:8px; min-height:1.5em}
+textarea{width:100%; min-height:140px; margin-top:22px; background:var(--card); color:var(--ink); border:1px solid var(--line); border-radius:var(--r); padding:14px 16px; font:inherit; font-size:18px; resize:vertical}
+.hint{font-size:14px; color:var(--muted); margin-top:10px}
+.link{background:none; border:0; padding:0; color:var(--muted); text-decoration:underline; text-underline-offset:3px; cursor:pointer; font-size:15px}
+.link:hover{color:var(--ink)}
+.fade{animation:in .35s ease both}
+@keyframes in{from{opacity:.001; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+/* guess + loading */
+.guess{font-family:var(--display); font-size:clamp(24px,4.6vw,32px); line-height:1.25; font-weight:400; margin-top:14px}
+.thinking{display:flex; gap:20px; align-items:center; margin-top:10px}
+.thinking canvas{width:120px; height:120px; animation:breathe 2.4s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.06)}}
+.choices{display:grid; gap:10px; margin-top:24px}
+
+/* results */
+.hero{display:grid; grid-template-columns:minmax(0,1fr) 260px; gap:32px; align-items:center; padding-bottom:36px; border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(34px,6.4vw,58px); font-weight:800; line-height:1.02; margin-top:10px}
+.hero p.portrait{font-size:19px; margin-top:18px; max-width:36em}
+.hero canvas{width:260px; height:260px; max-width:100%}
+@media (max-width:700px){.hero{grid-template-columns:1fr}.hero canvas{width:180px;height:180px;order:-1}}
+section.block{padding-block:36px; border-bottom:1px solid var(--line)}
+section.block h2{font-size:26px; font-weight:700}
+section.block > p.sub{color:var(--muted); margin-top:6px; font-size:16px; max-width:40em}
+
+.spec{display:grid; gap:18px; margin-top:24px}
+.axis{display:grid; grid-template-columns:120px minmax(0,1fr) 120px 70px; gap:12px; align-items:center; font-size:15px}
+.axis .l{text-align:right}
+.track{position:relative; height:24px}
+.track::before{content:""; position:absolute; left:0; right:0; top:50%; height:1px; background:var(--line)}
+.track::after{content:""; position:absolute; left:50%; top:6px; bottom:6px; width:1px; background:var(--line)}
+.dot{position:absolute; top:50%; width:16px; height:16px; margin:-8px 0 0 -8px; border-radius:50%; background:var(--ink)}
+.pill{font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; border-radius:999px; padding:2px 8px; text-align:center; border:1px solid var(--line); color:var(--muted)}
+.pill.clear{background:var(--ink); color:var(--card); border-color:var(--ink)}
+.pill.leaning{border-color:var(--ink); color:var(--ink)}
+@media (max-width:620px){
+  .axis{grid-template-columns:1fr 1fr; gap:4px 12px}
+  .axis .l{text-align:left}.axis .r{text-align:right}
+  .axis .track{grid-column:1 / -1; grid-row:2}
+  .axis .pill{grid-column:1 / -1; justify-self:start}
+}
+
+.likes{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:28px 32px; margin-top:24px}
+.likes h3{font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:10px}
+.likes ul{list-style:none; margin:0; padding:0; display:grid; gap:12px}
+.likes li b{font-weight:600; display:block}
+.likes li span{font-size:15px; color:var(--muted)}
+
+.niches{display:grid; gap:14px; margin-top:24px; counter-reset:n}
+.niche{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:20px 22px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:6px 28px}
+.niche h3{font-size:21px; font-weight:700; grid-column:1 / -1}
+.niche .what{grid-column:1 / -1; font-style:italic; color:var(--muted); font-size:16px}
+.niche dl{margin:8px 0 0}
+.niche dt{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+.niche dd{margin:2px 0 0; font-size:16px}
+@media (max-width:620px){.niche{grid-template-columns:1fr}}
+
+.trace{display:grid; gap:0; margin-top:20px}
+.trace > div{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:6px 28px; padding-block:16px; border-top:1px dashed var(--line)}
+.trace > div:first-child{border-top:0}
+.trace .tq{font-family:var(--display); font-weight:600; font-size:18px; line-height:1.3}
+.trace .ta{font-size:15px; color:var(--muted); margin-top:4px}
+.trace .tm{font-size:16px}
+.trace .tm::before{content:"Quietly measuring"; display:block; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:2px}
+@media (max-width:620px){.trace > div{grid-template-columns:1fr}}
+
+.pull{font-family:var(--display); font-size:clamp(22px,4vw,28px); line-height:1.3; margin-top:16px; max-width:30em}
+.keep{background:var(--ink); color:var(--card); border-radius:var(--r); padding:28px; margin-top:36px}
+.keep .eyebrow{color:inherit; opacity:.7}
+.keep p.kq{font-family:var(--display); font-size:clamp(22px,4vw,30px); line-height:1.25; margin-top:10px}
+.foot{display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; justify-content:space-between; margin-top:32px}
+.foot small{font-family:var(--mono); font-size:12px; color:var(--muted)}
+.toast{font-family:var(--mono); font-size:12px; color:var(--accent)}
+@media (prefers-reduced-motion: reduce){
+  .fade,.thinking canvas{animation:none}
+  .timer span{animation:none; transform:scaleX(1)}
+}
+</style>
+<style>
+.prog{flex:1; max-width:220px; height:4px; background:var(--line); border-radius:2px; overflow:hidden}
+.prog span{display:block; height:100%; background:var(--accent); transition:width .3s}
+.bars{display:grid; gap:10px; margin-top:22px}
+.barrow{display:grid; grid-template-columns:120px minmax(0,1fr) 44px; gap:12px; align-items:center; font-size:15px}
+.barrow .trk{background:var(--line); border-radius:5px; overflow:hidden}
+.barrow .trk i{display:block; height:10px; border-radius:5px; background:var(--ink)}
+.barrow.top .trk i{background:var(--accent)}
+.barrow b{font-family:var(--mono); font-weight:500; font-size:13px; text-align:right; font-variant-numeric:tabular-nums}
+.code{font-family:var(--mono); letter-spacing:.2em; color:var(--accent)}
+.jobs{list-style:none; margin:8px 0 0; padding:0; display:grid; gap:6px; font-size:16px}
+.jobs a{color:var(--ink); text-underline-offset:3px}
+.jobs small{color:var(--muted); font-family:var(--mono); font-size:12px; margin-left:8px; white-space:nowrap}
+.niche dd + dd{margin-top:8px}
+.hob{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px 32px; margin:24px 0 0; padding:0; list-style:none}
+.hob b{font-weight:600; display:block}
+.hob span{font-size:15px; color:var(--muted)}
+.rate{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+.rate .opt{width:auto; padding:10px 14px; font-size:15px}
+.cardimg{max-width:340px; width:100%; border-radius:var(--r); border:1px solid var(--line); display:block; margin-top:20px}
+.method{font-size:14px; color:var(--muted); max-width:44em; margin-top:28px; border-top:1px solid var(--line); padding-top:14px}
+.method a{color:inherit}
+@media (max-width:620px){.barrow{grid-template-columns:96px minmax(0,1fr) 40px}}
+</style>
+
+<div class="wrap" id="wrap">
+  <div class="bar">
+    <div class="brand">What You Like</div>
+    <div class="prog" id="prog" aria-label="Progress" hidden><span></span></div>
+  </div>
+  <main id="screen"></main>
+</div>
+
+<script>
+/* ---------------- Config ---------------- */
+// Paste a Google Form (or any https) link here to give testers a place to send feedback.
+const FEEDBACK_URL = '';
+
+/* ---------------- Model: six Holland types + four style axes ---------------- */
+const TYPES = 'RIASEC'.split('');
+const T = {
+  R:{name:'Maker', title:'works things out with their hands', guess:'get your hands on something real and make it work',
+     desc:'You seem to think best with something physical in front of you: tools, materials, a body in motion.',
+     why:'Practical, physical work with a result you can see.', drain:'A week of physical, hands-on work',
+     card:'Whether hands-on, physical work pulls you in. This is the Realistic strand of the Holland model.'},
+  I:{name:'Investigator', title:'follows questions to the bottom', guess:'chase a question until it gives up its answer',
+     desc:'You seem drawn to things that need figuring out, and you stay with a problem after other people move on.',
+     why:'Runs on curiosity, evidence and figuring things out.', drain:'A week alone with one hard problem',
+     card:'Whether puzzles and unexplained things pull you in. This is the Investigative strand.'},
+  A:{name:'Creator', title:'makes things that were not there before', guess:'make something that did not exist this morning',
+     desc:'You seem to want room to shape things your own way, and you notice how things look, sound and feel.',
+     why:'Open-ended work where your own taste shapes the result.', drain:'A week with no brief and a blank page',
+     card:'Whether open-ended making and self-expression pull you in. This is the Artistic strand.'},
+  S:{name:'Helper', title:'pays attention to people', guess:'be useful to an actual person in front of you',
+     desc:'You seem to notice how people are doing, and helping or teaching gives you energy back.',
+     why:'Centred on helping, teaching or caring for people.', drain:'A week of looking after other people',
+     card:'Whether helping, teaching and looking after people pull you in. This is the Social strand.'},
+  E:{name:'Persuader', title:'gets things moving', guess:'take charge and get something off the ground',
+     desc:'You seem comfortable taking the lead, making the case and betting on an idea.',
+     why:'Rewards initiative, persuasion and taking the lead.', drain:'A week of pitching and persuading',
+     card:'Whether leading, selling and taking risks pull you in. This is the Enterprising strand.'},
+  C:{name:'Organizer', title:'puts things in order', guess:'bring order to something messy',
+     desc:'You seem to enjoy getting details right and turning a mess into a system that works.',
+     why:'Rewards accuracy, structure and systems people can rely on.', drain:'A week of forms, records and checking details',
+     card:'Whether order, detail and clear systems pull you in. This is the Conventional strand.'},
+};
+const STY = [
+  {id:'d', left:'Familiar', right:'Unknown'},
+  {id:'e', left:'Solitude', right:'Company'},
+  {id:'f', left:'Process', right:'Outcome'},
+  {id:'t', left:'Warm & bright', right:'Dim & mysterious'},
+];
+const SP = {
+  d:{'-1':"you go deep on what you already love instead of chasing what is new", '1':"you would rather take the unmarked street than the recommended one"},
+  e:{'-1':"you recharge alone and choose your company carefully", '1':"you come alive around other people"},
+  f:{'-1':"the doing is the reward for you, and the finish line is a bonus", '1':"you like things to land, finished and whole"},
+  t:{'-1':"you lean toward warmth, daylight and things that leave you lighter", '1':"you feel at home in dim light, fog and open questions"},
+};
+
+/* ---------------- Question bank ---------------- */
+const lines = s => s.trim().split('\n').map(l=>l.trim()).filter(Boolean).map(l=>l.split('|'));
+const parseW = s => { const w={}; s.split(' ').filter(Boolean).forEach(x=>{ w[x[0]]=parseFloat(x.slice(1)); }); return w; };
+
+const CARD_RAW = {
+R:`A mechanical watch, taken apart on a workbench
+A vegetable bed that needs digging over
+A bicycle with a slipped chain
+A flat-pack shelf with no instructions
+A trail map and a pair of muddy boots
+A sourdough starter that needs feeding`,
+I:`A telescope pointed at something faint
+A dataset nobody has looked at yet
+A fossil with a handwritten label
+A crossword with three clues left
+A documentary about how black holes form
+A test result that should not be possible`,
+A:`A blank sketchbook and one good pen
+An empty stage an hour before the show
+A synthesizer with too many knobs
+A camera with one roll of film left
+A half-finished short story
+Fabric scraps and a sewing machine`,
+S:`A friend who needs to talk something through
+A classroom of ten-year-olds with questions
+A community garden work day
+A newcomer who knows nobody at the party
+A first-aid kit and someone with a scraped knee
+A neighbour learning to use a smartphone`,
+E:`A market stall and something to sell
+A room that needs convincing
+A group project with no leader
+A negotiation over the price of a used car
+A pitch you have ninety seconds to give
+A club that needs twenty more members`,
+C:`A messy spreadsheet that could be tidy
+A shelf of books in no order at all
+A trip itinerary with every train time checked
+A budget that has to balance to the cent
+A drawer of tangled cables and a label maker
+A checklist with one box left to tick`,
+};
+const CARDS = [];
+TYPES.forEach(ty => lines(CARD_RAW[ty]).forEach((l,i)=>CARDS.push({id:'c'+ty+i, ty, t:l[0]})));
+
+// Small scenes. Weights: R I A S E C are the Holland types; d e f t are the style axes.
+const SCEN = [
+ {p:"Halfway through a party, you are usually…", m:"Where you drift when nobody is directing you: toward the crowd, one person, a task, or the door.",
+  o:[["In the middle of the loudest group","E1 S.5 e1.5"],["In the kitchen, deep in one conversation","S1 I.5 e.3"],["Fixing the speaker that keeps cutting out","R1.5"],["Planning a quiet exit","I.3 e-1.5"]]},
+ {p:"A week in a city you have never seen. First morning:", m:"Whether you meet the unknown with a plan, a wander, a person or a question.",
+  o:[["Follow the itinerary I built at home","C1.5 d-1"],["Walk until I am lost","A.5 d1.5"],["Find a local to show me around","S1 E.5 e1"],["Head for the museum I read about","I1.5"]]},
+ {p:"A group project lands on your table. You reach for…", m:"The role you take by default: leading, structuring, solving or shaping.",
+  o:[["The whiteboard, to hand out roles","E1.5"],["The shared doc, to set up the structure","C1.5"],["The hard part nobody understands yet","I1.5"],["The part that has to look good","A1.5"]]},
+ {p:"Something at home breaks. You…", m:"Four ways of meeting a problem: with hands, with reasoning, with people, or with a deal.",
+  o:[["Take it apart to see how it works","R1.5 I.5"],["Look up exactly why it failed","I1.5"],["Call someone who knows, and chat while they fix it","S1 e1"],["Replace it with a better one and sell the old one","E1 f1"]]},
+ {p:"A whole free day appears out of nowhere.", m:"What you do when nothing is required of you is the cleanest signal there is.",
+  o:[["Make something with my hands","R1 A.5 f-.5"],["Go down a rabbit hole on one topic","I1.5 e-1"],["See who is around","S1.5 e1.5"],["Finally sort out the thing I keep putting off","C1.5 f1"]]},
+ {p:"In a museum, you linger longest at…", m:"What holds your attention: mechanisms, explanations, beauty, or other people.",
+  o:[["The machines and tools","R1.5"],["The explanations on the wall","I1.5"],["One painting, for a long time","A1.5 f-1"],["The other visitors, and how they react","S1"]]},
+ {p:"Pick a gift for yourself.", m:"A gift is a wish in disguise: to make, to learn, to gather people, or to start something.",
+  o:[["A good set of tools","R1.5"],["A year of courses in anything I want","I1 d1"],["A handmade object with a story","A1.5"],["A dinner for six people I choose","S1.5 e1"],["Seed money for an idea","E1.5 d1"]]},
+ {p:"At ten years old, you could spend a whole afternoon…", m:"Childhood absorptions tend to be stable. What held you then often still does.",
+  o:[["Building forts, models or brick sets","R1.5"],["Reading about dinosaurs, space or how things work","I1.5"],["Drawing, writing or putting on shows","A1.5"],["Sorting collections: cards, stickers, rocks","C1.5"],["Running a game with rules for everyone","E1 S.5 e1"]]},
+ {p:"A new restaurant opens. What do you notice first?", m:"The lens you bring to an ordinary place: operations, aesthetics, people or business.",
+  o:[["How the kitchen is run","C1 R.5"],["The lighting and the plates","A1.5"],["Whether the staff seem happy","S1.5"],["Whether the place will make money","E1.5"]]},
+ {p:"Which headline do you click?", m:"Curiosity has a direction. This checks which way yours points.",
+  o:[["Scientists cannot explain this signal","I1.5 t1"],["The town that rebuilt itself by hand","R1 S.5"],["How a 24-year-old built a brand from nothing","E1.5"],["The lost album, found after forty years","A1.5 t.5"]]},
+ {p:"You have four volunteer hours. You spend them…", m:"The same generous impulse, expressed through four different kinds of work.",
+  o:[["Repairing bikes","R1.5"],["Tutoring one student","S1.5"],["Running the fundraising table","E1.5"],["Doing the charity's books","C1.5"]]},
+ {p:"Which rabbit hole gets you at 1 a.m.?", m:"What you watch when nobody is counting says more than what you say you like.",
+  o:[["Restoration videos","R1.5 f-1"],["Unsolved mysteries","I1 t1.5"],["Someone's portfolio","A1.5"],["Productivity systems","C1.5"],["Founder interviews","E1.5"]]},
+ {p:"Which compliment lands best?", m:"The praise you want most points at the identity you are building.",
+  o:[["You make things work.","R1.5"],["You always ask the right question.","I1.5"],["Nobody else would have thought of that.","A1.5"],["People feel better around you.","S1.5"],["You could sell anything.","E1.5"],["Nothing slips past you.","C1.5"]]},
+ {p:"On board-game night you are…", m:"Play strips away job titles. This is how you behave when it is only a game.",
+  o:[["Reading the rulebook so we play it right","C1.5"],["Working out the best strategy","I1.5 f1"],["Making alliances and breaking them","E1.5 e1"],["Making sure everyone is having fun","S1.5"]]},
+ {p:"Your ideal workspace has…", m:"The room you would build for yourself shows the work you want to be doing in it.",
+  o:[["A workbench and good tools","R1.5"],["A wall of pinned-up references","A1 I.5"],["People dropping by","S1 E.5 e1.5"],["One clean desk, everything in its place","C1.5 e-.5"]]},
+ {p:"The school subject you secretly liked:", m:"Not the one you were best at. The one you liked says more about fit.",
+  o:[["Shop, PE or anything outdoors","R1.5"],["Science or maths","I1.5"],["Art, music or drama","A1.5"],["Whatever had the best discussions","S1 E.5"],["The one with clear rules and right answers","C1.5"]]},
+ {p:"A local festival needs help. You sign up to…", m:"One event, five jobs. Each maps to a different Holland type.",
+  o:[["Build the stage","R1.5"],["Design the poster","A1.5"],["Welcome people at the gate","S1.5"],["Book the acts and sponsors","E1.5"],["Run the schedule and the cash box","C1.5"]]},
+ {p:"The book you would actually finish:", m:"Finishing is the test. It separates what interests you from what you think should.",
+  o:[["How everyday things are made","R1 I.5"],["A big idea that changes how I see something","I1.5"],["A novel with a strange voice","A1.5 t.5"],["A memoir about an ordinary life","S1"],["How someone built a company","E1.5"]]},
+ {p:"A friend is stuck on a decision. You…", m:"How you help reveals what you trust: listening, structure, conviction or reframing.",
+  o:[["Listen until they find it themselves","S1.5"],["Lay out pros and cons in two columns","C1 I.5"],["Tell them what I would do","E1.5"],["Ask a question that reframes it","I1 A.5"]]},
+ {p:"At a flea market, you come home with…", m:"What you rescue from a pile of old things: beauty, materials, profit, sets or stories.",
+  o:[["One beautiful thing I could never make","A1"],["Raw materials for a project","R1 A.5"],["Something I can resell","E1.5"],["The missing piece of a set","C1.5"],["A story from the seller","S1.5"]]},
+ {p:"The most-used folder on your phone would be…", m:"A rough audit of where your attention already goes.",
+  o:[["Maps and outdoors","R1 d1"],["Podcasts and articles","I1.5"],["Camera and editing","A1.5"],["Messages","S1.5 e1"],["Selling and side projects","E1.5"],["Notes and lists","C1.5"]]},
+ {p:"You would rather be known for…", m:"The legacy you pick is the plainest statement of what you value doing.",
+  o:[["Something I built","R1.5 f1"],["Something I discovered","I1.5"],["Something I made that moved people","A1.5"],["Someone I helped","S1.5"],["Something I started","E1.5"],["Something I kept running","C1.5"]]},
+ {p:"A free weekend and a box of tools. You…", m:"Three relationships with craft: inventing, restoring, or studying it.",
+  o:[["Build something new","R1 A.5 d.5"],["Fix up something old","R1.5 d-.5 f-.5"],["Read about something someone else built","I1"]]},
+ {p:"A documentary you would watch twice:", m:"A second viewing means real interest. The subject shows which kind.",
+  o:[["How a bridge gets built","R1.5"],["What is at the bottom of the ocean","I1.5 t.5"],["A year inside a dance company","A1.5"],["A teacher in a tough school","S1.5"],["The rise and fall of a company","E1.5"]]},
+ {p:"A shared flat needs a system. You volunteer to…", m:"Everyday chores sort people by type faster than most tests.",
+  o:[["Fix what is broken","R1.5"],["Make the place look good","A1.5"],["Keep the peace","S1.5"],["Negotiate with the landlord","E1.5"],["Run the rota and the bills","C1.5"]]},
+ {p:"You find a notebook on a train. The best thing it could contain:", m:"What you hope to find is what you would most like to spend time on.",
+  o:[["Sketches and half-written songs","A1.5"],["Notes on an unsolved problem","I1.5 t.5"],["Plans for a business","E1.5"],["Letters to someone","S1.5"],["A perfectly kept log of something","C1.5"],["Blueprints for a machine","R1.5"]]},
+].map((q,i)=>({id:'s'+i, p:q.p, m:q.m, o:q.o.map(([t,w])=>({t, w:parseW(w)}))}));
+
+const STYLEQ = [
+ {ax:'d', p:"How often do you re-read or re-watch your favorites?", m:"Whether depth or breadth feeds you. Returning to favorites is a way of going deeper.",
+  o:[["Constantly. That is what favorites are for.","d-1.5"],["Sometimes, when I need comfort","d-.3"],["Rarely. There is too much I have not seen.","d1.5"]]},
+ {ax:'d', p:"A year, all expenses paid. One condition:", m:"Novelty versus depth, at the scale of a whole year.",
+  o:[["Live somewhere I have never been","d1.5"],["Stay put and go deep on one thing I already love","d-1.5"]]},
+ {ax:'e', p:"Good news arrives. Your first move:", m:"Where you process things: out loud with others, or inside first.",
+  o:[["Tell someone right away","e1.5 S.3"],["Sit with it alone for a while","e-1.5"],["Write it down","e-.5 A.3"]]},
+ {ax:'e', p:"The best conversations happen…", m:"Social energy: groups, pairs, or the conversation you have with yourself.",
+  o:[["In a group, ideas bouncing around","e1.5 E.3"],["One-on-one, late at night","e.3 t.5"],["In my own head","e-1.5 I.3"]]},
+ {ax:'f', p:"After a long trip you can keep only one.", m:"Process versus outcome: the edited result or the raw experience.",
+  o:[["The finished photo album","f1.5"],["All the unedited footage","f-1.5"]]},
+ {ax:'f', p:"A thousand-piece puzzle. The best moment is…", m:"Whether the reward is in the doing or in the finishing.",
+  o:[["The last piece going in","f1.5"],["The long middle, sorting and trying","f-1.5"]]},
+ {ax:'t', p:"Your ideal light:", m:"Mood. People who pick a single lamp in a dark room tend to like mystery and depth.",
+  o:[["Noon sun","t-1.5"],["Blue hour","t1"],["One lamp in a dark room","t1.5 e-.5"]]},
+ {ax:'t', p:"Music for a long night drive:", m:"Mood again, from the angle of sound.",
+  o:[["Something with sunshine in it","t-1.5"],["Something that sounds like fog","t1.5"]]},
+].map((q,i)=>({id:'y'+i, ax:q.ax, p:q.p, m:q.m, o:q.o.map(([t,w])=>({t, w:parseW(w)}))}));
+
+// Forced choices between two types. key|prompt|option for first type|option for second type
+const PAIRS = lines(`
+RI|A stuck engine.|Get my hands in and try things|Read the manual and reason it out
+RI|A weekend course:|Welding|Astronomy
+RA|A plain wooden chair.|Make it sturdier|Make it stranger
+RA|A blank wall.|Build shelves on it|Paint a mural on it
+RS|A flooded street.|Fill sandbags|Check on the neighbours
+RS|A summer job:|Landscaping crew|Camp counsellor
+RE|A food truck.|Cook in it|Run the business
+RE|An old house.|Renovate it|Buy it, sell it, move on
+RC|A workshop.|Use the tools|Organize the tools
+RC|A warehouse shift:|Drive the forklift|Run the inventory system
+IA|A sunset.|Why is it that colour?|How would I paint it?
+IA|A film.|Work out the twist before it lands|Notice how it was shot
+IS|A struggling student.|Work out why the method fails|Sit with them until it clicks
+IS|A hospital:|The lab|The ward
+IE|A breakthrough.|Understand it|Launch it
+IE|A startup:|Solve the hard technical problem|Win the first customers
+IC|A pile of survey results.|Hunt for the surprising pattern|Clean and file every row
+IC|A library:|Research in it|Catalogue it
+AS|A school play.|Write it|Coach the nervous kids
+AS|A friend has a hard week.|Make them something|Spend the evening with them
+AE|A band.|Write the songs|Book the tour
+AE|A gallery:|Hang my work in it|Run it
+AC|A magazine.|Design the cover|Proofread every page
+AC|A recipe.|Improvise|Follow it exactly
+SE|A room of strangers.|Make one of them comfortable|Win all of them over
+SE|A team:|Support it|Lead it
+SC|A charity.|Work with the people it serves|Keep its records straight
+SC|A new hire's first day.|Show them around|Set up their accounts
+EC|A business.|Start it|Keep it running smoothly
+EC|A deal.|Close it|Check the contract line by line
+`).map((l,i)=>({id:'p'+i, k:l[0], p:l[1], a:l[2], b:l[3]}));
+
+/* ---------------- Library ---------------- */
+function vec(code){ const v=[0,0,0,0,0,0]; [1,.7,.4].forEach((w,i)=>{ if (code[i]) v[TYPES.indexOf(code[i])]=w; }); return v; }
+const ZONE = ['', 'Start right away', 'Short training', '1 to 2 years of training', "Bachelor's degree", 'Graduate degree'];
+
+// title|Holland code|preparation level 1-5. Codes are approximations in the style of O*NET interest codes.
+const OCC_RAW = {
+'Arts & Media':`Graphic Designer|ARE|4
+Illustrator|ARE|3
+Film and Video Editor|AIE|4
+Photographer|ARE|3
+Writer or Author|AIE|4
+Musician|AER|3
+Actor|AES|2
+Art Director|AEC|4
+Animator|AIR|4
+Sound Engineer|RAI|3
+Editor|AEC|4
+Journalist|AEI|4
+Game Designer|AIE|4
+Fashion Designer|AER|3
+Interior Designer|AER|4
+Translator|ASC|4
+Museum Curator|AIE|5
+Set and Exhibit Designer|ARE|4
+Technical Writer|AIC|4
+Architect|AIR|5
+Landscape Architect|AIR|4
+Industrial Designer|AER|4
+UX Designer|AIC|4
+Floral Designer|ARE|2
+Makeup Artist|ARS|3
+Music Producer|AES|4
+Choreographer|ASE|3
+Copywriter|AES|4
+Stage Manager|EAC|4`,
+'Science & Research':`Biologist|IRC|5
+Chemist|IRC|4
+Physicist|IRC|5
+Astronomer|IAR|5
+Geoscientist|IRC|4
+Environmental Scientist|IRC|4
+Clinical Psychologist|ISA|5
+Sociologist|IAS|5
+Archaeologist|IRA|5
+Historian|IAC|5
+Economist|ICE|5
+Epidemiologist|ISC|5
+Food Scientist|IRC|4
+Forensic Science Technician|IRC|4
+Wildlife Biologist|IRA|4
+Medical Scientist|IRA|5
+Statistician|ICR|5
+Conservation Scientist|RIE|4
+Archivist|CIA|5
+Urban Planner|IEA|5
+Science Writer|IAE|4`,
+'Tech & Data':`Software Developer|ICR|4
+Data Scientist|ICE|4
+Web Developer|ICA|3
+Information Security Analyst|CIR|4
+Database Administrator|CIR|4
+Systems Analyst|ICR|4
+Network Administrator|CRI|4
+IT Support Specialist|RCI|3
+Data Analyst|CIE|4
+QA Tester|CIR|4
+Cartographer or GIS Analyst|ICR|4
+Robotics Technician|RIC|3
+Product Manager|EIC|4`,
+'Engineering & Trades':`Mechanical Engineer|IRC|4
+Civil Engineer|RIC|4
+Electrical Engineer|IRC|4
+Aerospace Engineer|IRC|4
+Biomedical Engineer|IRC|4
+Environmental Engineer|IRC|4
+Industrial Engineer|ICE|4
+CAD Drafter|RCA|3
+Surveyor|RCI|4
+Construction Manager|ERC|4
+Electrician|RIC|3
+Carpenter|RCI|2
+Plumber|RCI|3
+Welder|RCI|2
+Automotive Technician|RIC|3
+Aircraft Mechanic|RCI|3
+Machinist|RCI|3
+HVAC Technician|RCI|3
+Wind Turbine Technician|RCI|3
+Solar Installer|RCI|2
+Furniture Maker|RAC|2
+Jeweler|RAC|3
+Instrument Maker or Repairer|RAI|3
+Watch Repairer|RCI|3
+Building Inspector|RCI|3`,
+'Nature & Outdoors':`Park Ranger or Naturalist|SRA|4
+Forester|RIE|4
+Farmer or Rancher|REC|2
+Landscaper or Gardener|RCA|2
+Veterinarian|IRS|5
+Veterinary Technician|RIS|3
+Animal Trainer|RSE|2
+Outdoor Guide|RSE|2
+Arborist|RCI|2
+Environmental Technician|RIC|3
+Brewer or Winemaker|RIE|3`,
+'Health & Care':`Registered Nurse|SIC|3
+Physician|ISR|5
+Physical Therapist|SIR|5
+Occupational Therapist|SIA|5
+Speech-Language Pathologist|SIA|5
+Paramedic|RSI|3
+Dental Hygienist|SRC|3
+Pharmacist|ICS|5
+Dietitian|ISE|5
+Massage Therapist|SRE|3
+Medical Lab Technologist|IRC|4
+Radiologic Technologist|RSC|3
+Mental Health Counselor|SIA|5
+Art or Music Therapist|SAI|5
+Personal Trainer|SRE|3
+Midwife|SIR|5
+Home Health Aide|SRC|2
+Dentist|IRS|5
+Genetic Counselor|ISA|5`,
+'Education & Community':`Elementary School Teacher|SAC|4
+High School Teacher|SAE|4
+Professor|SIA|5
+Special Education Teacher|SAI|4
+Librarian|CSE|5
+School Counselor|SAE|5
+Social Worker|SEA|4
+Child Care Worker|SAR|2
+Sports Coach|SRE|4
+Instructional Designer|SAI|5
+Tutor|SIC|3
+Nonprofit Coordinator|ESA|4
+Recreation Worker|SEA|3
+Chaplain|SAE|5
+Mediator|SEI|5`,
+'Business & Enterprise':`Small Business Owner|ECS|3
+Marketing Manager|EAC|4
+Sales Representative|ESC|2
+Real Estate Agent|ECS|3
+Public Relations Specialist|EAS|4
+Event Planner|ECS|4
+Management Consultant|EIC|4
+Human Resources Specialist|SEC|4
+Fundraiser|ESC|4
+Retail Buyer|ECA|4
+Operations Manager|ECR|4
+Project Manager|ECI|4
+Social Media Manager|EAS|4
+Restaurant Manager|ECS|3
+Hotel Manager|ECS|4
+Travel Agent|ECS|3`,
+'Finance & Administration':`Accountant|CEI|4
+Financial Analyst|CIE|4
+Bookkeeper|CES|3
+Actuary|CIE|4
+Auditor|CEI|4
+Financial Planner|ECS|4
+Insurance Underwriter|CEI|4
+Tax Preparer|CES|3
+Executive Assistant|CES|3
+Paralegal|CIE|3
+Medical Records Specialist|CIS|3
+Compliance Officer|CIE|4
+Proofreader|CAI|4
+Quality Inspector|CRI|2
+Logistics Analyst|CEI|4
+Dispatcher|CER|2`,
+'Law & Public Service':`Lawyer|EIS|5
+Police Officer|RES|3
+Detective|EIC|3
+Firefighter|RSE|3
+Policy Analyst|IES|5
+Emergency Management Director|ESC|4
+Intelligence Analyst|ICE|4
+Airline Pilot|RIE|4
+Air Traffic Controller|ECR|3
+Ship Officer|REC|3
+Train Driver|RCE|2`,
+'Food & Hospitality':`Chef|ERA|3
+Baker|RAC|2
+Barista|SER|1
+Bartender|ESR|2
+Tour Guide|SEA|3
+Flight Attendant|ESC|2`,
+};
+const OCC = [];
+for (const cl in OCC_RAW) lines(OCC_RAW[cl]).forEach(([n,code,z])=>OCC.push({n, code, z:+z, cl, v:vec(code)}));
+
+// name|Holland code|style (familiar/unknown, solo/company, process/outcome, bright/dim as - 0 +)|first step
+const HOB = lines(`
+Woodworking|RAC|0-00|Build one small box from a single board.
+Bike repair|RIC|0-+0|Fix a flat and tune your own gears.
+Vegetable gardening|RIS|-0--|Grow one pot of herbs from seed.
+Hiking|RIS|+0--|Pick a trail under 8 km and go this weekend.
+Bouldering|RSI|++00|Book an intro session at a climbing gym.
+Sourdough baking|RIA|--0-|Make a starter and feed it for a week.
+Home brewing|RIC|00+0|Brew one small batch from a kit.
+Car restoration|RIC|-0-0|Do one job on your own car from a repair video.
+Leathercraft|RAC|0--0|Stitch a card holder from a starter kit.
+Fishing|RIC|-0--|Borrow a rod and spend a morning at the nearest water.
+Camping|RSA|+0--|Spend one night at a campsite within an hour of home.
+Foraging|RIA|+0-0|Join one guided foraging walk.
+Beekeeping|RIC|0--0|Visit a local beekeepers' open day.
+Blacksmithing|RAI|+0-+|Take a one-day forging class.
+Electronics tinkering|RIC|+-+0|Make an LED blink with a starter board.
+3D printing|RIA|+-+0|Print one useful object at a library makerspace.
+Furniture restoration|RAC|---0|Refinish one secondhand chair.
+Watch repair|RCI|---0|Take apart a cheap mechanical movement and reassemble it.
+Fountain pen restoration|RCA|---+|Buy one worn pen and get it writing again.
+Scale model building|RCA|---0|Build one plastic kit start to finish.
+Brick building|RAC|0-+-|Build something with no instructions.
+Home renovation DIY|REC|00+-|Repaint one room properly, prep included.
+Sailing|RES|++0-|Take a taster session at a sailing club.
+Kayaking|RSI|+00-|Rent a kayak for two hours on flat water.
+Cycling|RSE|00--|Ride a 20 km loop you have never ridden.
+Running|RCS|-0+-|Follow a beginner plan for three weeks.
+Martial arts|RSC|0+-0|Try a free first class at a local dojo.
+Yoga|RSA|---0|Do ten minutes every morning for a week.
+Archery|RCI|0--0|Book a have-a-go session at an archery range.
+Skateboarding|RAS|+00-|Learn to push and turn in an empty car park.
+Surfing|RAS|++--|Take one group lesson on a beginner beach.
+Swimming|RCS|---0|Swim twice a week for a month.
+Weightlifting|RCE|-0+0|Learn three basic lifts with a coach.
+Scuba diving|RIS|++0+|Do a try-dive in a pool.
+Cooking new cuisines|RAS|+0--|Cook three dishes from one unfamiliar cuisine.
+Barbecue and smoking|RSE|-+--|Smoke one cut low and slow for friends.
+Fermentation|RIC|0--0|Make one jar of kimchi or sauerkraut.
+Coffee brewing|RIC|0--0|Brew the same beans three ways and compare.
+Candle and soap making|RAC|0-+-|Make one batch from a starter kit.
+Knitting or crochet|RAC|----|Make one scarf.
+Sewing clothes|RAC|0-+-|Sew one simple garment from a pattern.
+Quilting|RAC|-0--|Make a four-square patch.
+Drone flying|RIA|+-0-|Fly a small drone in an open field.
+Amateur radio|RIC|0000|Listen in on a local club net.
+Locksport|RIC|+-0+|Learn to open a clear practice lock.
+Aquarium keeping|RIC|---0|Set up one small planted tank.
+Houseplants|RAC|----|Propagate one cutting.
+Bonsai|RAC|---0|Start with one nursery plant and prune it.
+Dog training|RSE|0+--|Teach a dog one new trick this week.
+Horse riding|RSC|00--|Book a beginner lesson.
+Geocaching|RIS|+0+-|Find three caches near home.
+Whittling|RAC|---0|Carve one spoon from green wood.
+Bookbinding|RAC|---0|Sew one small notebook.
+Bushcraft|RIC|+--0|Learn to light a fire without matches.
+Skiing or snowboarding|RSE|++--|Take one beginner lesson.
+Pickup team sports|RSE|0+0-|Join one casual game this month.
+Racket sports|RSE|0+0-|Book a court with a friend.
+Trail maintenance crews|RSC|0+--|Join one volunteer trail day.
+Repair café volunteering|RSI|0++-|Bring one broken thing, then offer to help.
+Amateur astronomy|IRA|+--+|Find a dark site and go on a moonless night.
+Chess|ICE|00+0|Play ten online games and review each one.
+Cryptic crosswords|ICA|---0|Solve one with the answers open beside you.
+Logic puzzles|ICR|---0|Do one hard puzzle a day for a week.
+Coding side projects|ICR|+-+0|Automate one small annoying task.
+Learning a language|ISA|+0-0|Learn 50 words and have one short exchange.
+Popular science reading|IAC|+--0|Read one book outside your field.
+Genealogy|ICS|---+|Trace one branch back three generations.
+Citizen science|IRS|+0-0|Log ten observations on a nature app.
+Rock and mineral collecting|IRC|0--0|Identify five stones from one walk.
+Fossil hunting|IRA|+--+|Visit one known fossil beach or quarry.
+Mushroom identification|IRC|+0-+|Join a guided foray and identify three species.
+Weather watching|IRC|0--0|Keep a two-week weather log.
+Data visualisation|ICA|+-+0|Chart one public dataset about your city.
+Philosophy reading group|ISA|0+-+|Read one short essay and discuss it with someone.
+History deep-dives|IAC|---+|Pick one year and read everything about it.
+Wikipedia editing|ICS|0--0|Fix and source one stub article.
+Map collecting|IAC|0--0|Hand-draw a map of your neighbourhood.
+Microscopy|IRC|+--0|Look at pond water under a cheap microscope.
+Escape rooms|IES|0++0|Book one with three friends.
+Strategy board games|IEC|0++0|Host one game night.
+Speedcubing|ICR|--+0|Learn the beginner method.
+Quiz nights|ISE|0++-|Join a pub quiz team.
+Lecture series and podcasts|IAS|+--0|Finish one full lecture course.
+Home lab and self-hosting|ICR|0-+0|Set up one service on an old computer.
+Competitive programming|ICE|0-+0|Solve five beginner problems.
+Constructed languages|IAC|+--+|Sketch the sounds and ten words of a language.
+Unsolved-case research|IAC|+--+|Read the primary sources on one cold case.
+Tide pooling|IRA|+0--|Visit a rocky shore at low tide.
+Plant pressing|IRC|---0|Press and label ten local plants.
+Kitchen chemistry|IRA|+0-0|Run three safe classic experiments.
+Robotics kits|IRC|+0+0|Build one line-following robot.
+Astrophotography|IAR|+--+|Photograph the Moon with your phone.
+Go|ICA|00-0|Learn the rules on a 9x9 board.
+Sketching|ARI|0--0|Fill one page a day for a week.
+Watercolour|ARI|0---|Paint the same view three times.
+Film photography|ARI|0--+|Shoot one roll and have it developed.
+Digital illustration|AIR|+-+0|Redraw one favorite image your own way.
+Creative writing|AIS|0--+|Write a 500-word story.
+Poetry|AIS|0--+|Write one poem a day for a week.
+Songwriting|AES|0-+0|Write one verse and a chorus.
+Playing an instrument|ARS|---0|Learn one song all the way through.
+Music production|AIR|+-+0|Make a one-minute track in free software.
+Choir singing|ASC|-+--|Go to one open rehearsal.
+Community theatre|ASE|0++-|Audition, or volunteer backstage.
+Improv|ASE|++--|Take a drop-in class.
+Stand-up comedy|AES|+++-|Write three minutes and try an open mic.
+Dance classes|ARS|0+-0|Try one beginner class.
+Pottery|ARS|00--|Take a wheel-throwing taster.
+Calligraphy|ARC|---0|Practise one alphabet with a brush pen.
+Zines and collage|AIR|+--0|Make an eight-page zine from one sheet.
+Short filmmaking|AER|+++0|Shoot a one-minute film on your phone.
+Video editing|AIC|0-+0|Cut a 60-second edit from old clips.
+Podcasting|AES|+++0|Record a ten-minute pilot.
+Newsletter writing|AEI|0-+0|Send one issue to five friends.
+Thrift styling|AES|+0+-|Build one outfit from secondhand finds.
+Interior styling|AER|0-+-|Restyle one shelf or corner.
+Cosplay|ARS|+++0|Make one prop.
+Miniature painting|ARC|---0|Paint one figure.
+Tabletop game mastering|ASE|++-+|Run a one-shot for three friends.
+Worldbuilding|AIC|+--+|Draw a map and write one page of history.
+Game design|AIE|+-+0|Build a tiny branching story in Twine.
+Lettering|ARC|0--0|Letter one quote by hand.
+Mural and street art|ARE|++0+|Paint at a legal wall.
+Field recording|AIR|+--+|Record ten minutes of one place and listen back.
+DJing|AES|++0+|Mix two tracks in free software.
+Linocut printmaking|ARC|0-+0|Carve and print one small block.
+Jewellery making|ARE|0-+-|Make one pair of earrings.
+Flower arranging|ARS|0---|Arrange one bunch three ways.
+Perfume blending|AIR|+--0|Learn five single-note materials by smell.
+Photo walks|ARS|+0--|Shoot one street at one time of day.
+Stop-motion animation|ARI|0-+0|Animate ten seconds.
+Journaling|ACS|----|Write three pages each morning for a week.
+Film criticism|AIC|0--+|Review five films in 100 words each.
+Gallery hopping|AIS|+0--|Visit three small galleries in one afternoon.
+Cake decorating|ARC|0-+-|Decorate one cake with a technique you have not tried.
+Screenwriting|AIE|0-+0|Write a five-page scene.
+Creative coding|AIC|+-+0|Make one generative sketch.
+Urban exploration photography|ARI|+-0+|Photograph one overlooked structure at blue hour.
+Embroidery|ARC|---0|Stitch one small design.
+Food bank volunteering|SRC|0+--|Sign up for one shift.
+Tutoring|SIA|0+--|Help one student with one subject.
+Hosting dinners|SAE|-++-|Cook for four people this month.
+Book club|SIA|-+--|Start one with two friends and one book.
+Helpline volunteering|SIC|0+-0|Attend an information evening.
+Coaching youth sports|SRE|-++-|Offer to assist at one practice.
+Animal shelter volunteering|SRC|0+--|Walk dogs for one morning.
+Community gardening|SRA|-+--|Join one work day.
+Teaching a skill-share|SAE|0++-|Teach friends one thing you know in an hour.
+Language exchange|SIA|++--|Do one 30-minute swap.
+Youth mentoring|SEA|0+--|Apply to one mentoring program.
+Elder visiting|SAC|0+-0|Visit one neighbour regularly.
+Hiking clubs|SRE|++--|Join one group walk.
+Letter writing|SAC|----|Write one real letter.
+Discussion salons|SIA|++-0|Host one evening around one question.
+First-aid volunteering|SRI|0++0|Take a first-aid course.
+Neighbourhood association|SEC|-++-|Go to one meeting.
+Newcomer support|SEA|++--|Volunteer at one welcome event.
+Storytelling nights|SAE|++-0|Tell one five-minute true story.
+Museum guiding|SAI|0+--|Ask a small museum about volunteering.
+Social dancing|SAR|++--|Go to one beginners' social.
+Selling at markets|ECA|0++-|Book one stall and sell ten things.
+Thrift flipping|ECR|+0+0|Buy one item, clean it up and resell it.
+Starting a side business|ECI|+0+0|Get one paying customer.
+Public speaking clubs|ESA|0++0|Give one prepared talk.
+Organizing meetups|ESC|0++-|Host one meetup for ten people.
+Fundraising|ESC|0++-|Raise a small target for one cause.
+Running a club|ESC|-++-|Volunteer for one committee role.
+Poker nights|ECI|0+++|Host a low-stakes home game.
+Fantasy sports|ECI|0++-|Run one league with friends.
+Local campaigning|ESA|+++0|Volunteer on one local campaign.
+Streaming and content creation|EAS|+++0|Post one short video a week for a month.
+Hackathons|EIR|+++0|Join one weekend event.
+Collecting to trade|ECA|00+0|Buy, research and trade one collectible.
+City tour leading|ESA|0++-|Give friends a one-hour tour of your area.
+Model UN and mock trial|EIS|+++0|Join one session.
+Rec league captaining|ERS|-++-|Organize one team.
+Crowdfunding a project|EAC|+0+0|Draft a campaign page for one idea.
+Pop-up food stall|ERA|+++-|Sell one dish at one event.
+Collecting|CRI|---0|Start one small, well-defined collection.
+Budget spreadsheets|CEI|--+0|Track one month of spending.
+Bullet journaling|CAS|----|Set up one month.
+Home organizing|CRE|--+-|Reorganize one cupboard completely.
+Trip planning|CES|+0+-|Plan a full weekend itinerary for someone else.
+Cataloguing a collection|CAI|---0|Catalogue 50 of your books or records.
+Archive transcription|CIS|0--+|Transcribe ten pages for an online archive.
+Jigsaw puzzles|CRA|----|Finish one 1000-piece puzzle.
+Cross-stitch|CRA|----|Finish one small kit.
+Model railways|CRI|---0|Visit a club open day.
+Photo archiving|CIA|---0|Sort and label one year of photos.
+Meal prepping|CRE|--+-|Prep five lunches on a Sunday.
+Transit and timetable study|CIR|0--0|Plan the fastest route through every line in your city.
+Completionist travel|CRI|+-+0|Visit every station or district in one area.
+Volunteer proofreading|CAI|---0|Proofread a few pages for a public-domain book project.
+Sports statistics|CIE|0-+0|Build one stats table for your team.
+Club treasurer|CES|-++0|Offer to keep the books for one group.
+Origami|CRA|---0|Fold one model until it is clean.
+Travel points planning|CEI|+0+0|Plan one trip paid for with points.
+`).map(([n,code,st,step])=>({n, code, v:vec(code), s:[...st].map(c=>c==='+'?1:c==='-'?-1:0), step}));
+
+// Niche fields carried over from the first version. name|code|style|what it is|first step
+const NICHE = lines(`
+Book and paper conservation|RAC|---+|Repairing rare books, maps and documents so they survive another century.|Take a weekend bookbinding class and learn to sew a signature.
+Field recording for sound libraries|AIR|+--+|Capturing real-world sound that films and games license.|Record ten minutes of one place and listen back with headphones.
+Game narrative design|AIE|+0+0|Writing branching stories, dialogue and lore that players move through.|Build a tiny branching story in Twine in one evening.
+Escape room and puzzle design|IAE|0++0|Designing physical and logical puzzles a group solves against a clock.|Design one three-step puzzle for friends at your next dinner.
+Typeface revival|ARC|---0|Redrawing and digitizing historical typefaces from old printed specimens.|Trace five letters from an old book and try them in a free font editor.
+Data journalism|IAE|+0+0|Finding stories hidden in public datasets and turning them into charts and articles.|Pick one open dataset about your city and answer a single question with it.
+Speculative design|AIE|+0-+|Making objects and scenarios from possible futures to provoke debate about the present.|Sketch an everyday object as it might look in 2060, and write its label.
+Independent perfumery|AIR|+--0|Composing scents from raw materials, often in small batches.|Buy a beginner's kit of single-note materials and learn five by smell.
+Watch and clock restoration|RCI|---0|Servicing and restoring mechanical movements.|Take apart a cheap mechanical movement and put it back together.
+Archival research for film and podcasts|ICA|0--+|Digging through archives to find the footage, letters and facts behind a story.|Visit a local archive and ask what they hold that nobody requests.
+Foraging and wild fermentation|RIA|+0-0|Finding edible plants and turning them into ferments, vinegars and sodas.|Join one guided foraging walk and make one small ferment.
+Urban exploration photography|ARI|+-0+|Documenting forgotten buildings, infrastructure and in-between places.|Photograph one overlooked structure in your area at blue hour.
+Makerspace and community workshop organizing|SRE|0+0-|Running shared workshops where people learn to make and repair.|Volunteer for one repair café session.
+Food styling|ARE|0++-|Preparing and arranging food so it photographs the way it tastes.|Style and shoot one dish in window light, five different ways.
+Map and cartographic design|AIC|+-00|Designing maps that are both accurate and beautiful.|Hand-draw a map of your neighbourhood with only the places you care about.
+Tea or coffee sensory evaluation|ICR|----|Professional tasting and grading of tea or specialty coffee.|Cup three single-origin coffees side by side and take notes.
+Rare book and ephemera dealing|ECA|-0++|Finding, researching and selling old books, posters, letters and printed oddities.|Spend an afternoon in secondhand shops looking for one thing worth researching.
+Natural dyeing and textile craft|RAC|-0--|Colouring fabric with plants, roots and minerals.|Dye one cotton scarf with onion skins.
+Tabletop RPG design and game mastering|ASE|++-+|Writing adventures and running them for a table of players.|Run a one-shot adventure for three friends.
+Science explainer videos|IAS|+++-|Turning hard ideas into short visual explanations.|Explain one concept you love in a 90-second video.
+Small-garden and native-plant design|RAI|00--|Designing small outdoor spaces around local plants and wildlife.|Plant one container with species native to your area.
+Oral history collecting|SIA|0+-+|Recording and preserving people's spoken memories.|Record a 30-minute conversation with an older relative about one year of their life.
+Lighting design for theatre and spaces|ARE|+0++|Shaping how a room or a stage feels with light alone.|Relight one room at home using only lamps you already own.
+Alternate reality game design|AIE|+0++|Hiding a story across websites, objects and real places for players to uncover.|Hide a three-clue trail for a friend across a website, a note and a place.
+Curating a niche newsletter|AEC|+0+0|Finding the best of one small corner of the world and sending it to people who care.|Send one issue about your obscure interest to five friends.
+Natural wine and sommelier work|ESA|++00|Tasting, sourcing and recommending wines, often from small producers.|Taste three natural wines side by side and describe each in one line.
+Dark-sky tourism guiding|SIR|++-+|Leading night-sky walks and astronomy tours in low-light areas.|Find your nearest dark-sky site and go on a moonless night.
+`).map(([n,code,st,what,step])=>({n, code, v:vec(code), s:[...st].map(c=>c==='+'?1:c==='-'?-1:0), what, step}));
+
+/* ---------------- State ---------------- */
+const PLAN = ['card','card','card','card','scen','scen','style','style','card','card','card','card','scen','style','style','pair','pair','pair','verify','prep'];
+let S;
+function fresh(){ return {phase:'intro', plan:[...PLAN], qi:0, cur:null, answers:[], used:[], flags:[], maxZone:5, guess:null, reaction:null, shownAt:0, rating:0}; }
+
+/* ---------------- Scoring ---------------- */
+function scores(){
+  const sc={}, abs={d:0,e:0,f:0,t:0};
+  [...TYPES,'d','e','f','t'].forEach(k=>sc[k]=0);
+  for (const a of S.answers) for (const k in a.w){ sc[k]+=a.w[k]; if (k in abs) abs[k]+=Math.abs(a.w[k]); }
+  return {sc,abs};
+}
+function rank(){ const {sc}=scores(); return [...TYPES].sort((a,b)=>sc[b]-sc[a]); }
+const used = id => S.used.includes(id);
+const pick = a => a[Math.floor(Math.random()*a.length)];
+function shuffle(a){ a=[...a]; for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function cos(v,w){ let d=0,n1=0,n2=0; for (let i=0;i<v.length;i++){ d+=v[i]*w[i]; n1+=v[i]*v[i]; n2+=w[i]*w[i]; } return d/(Math.sqrt(n1*n2)||1); }
+function median(a){ if (!a.length) return 0; const s=[...a].sort((x,y)=>x-y); return s[Math.floor(s.length/2)]; }
+
+/* ---------------- Question selection ---------------- */
+function makeQ(kind){
+  if (kind==='card'){
+    const carded=S.answers.filter(a=>a.kind==='card').map(a=>a.ty);
+    const pool=TYPES.filter(t=>!carded.includes(t));
+    const ty = pool.length ? pick(pool) : rank()[(carded.length-6)%2];
+    const c = pick(CARDS.filter(x=>x.ty===ty && !used(x.id))) || pick(CARDS.filter(x=>!used(x.id)));
+    return {id:c.id, kind, ty:c.ty, label:'First reaction', prompt:c.t, measures:T[c.ty].card,
+      opts:[{t:'Yes, that pulls me in',w:{[c.ty]:1.5}},{t:'Could take it or leave it',w:{[c.ty]:.2}},{t:'Not for me',w:{[c.ty]:-1}}]};
+  }
+  if (kind==='scen'){
+    const top=rank().slice(0,3);
+    const cands=SCEN.filter(q=>!used(q.id)).map(q=>({q, s:q.o.filter(o=>top.some(t=>o.w[t])).length + Math.random()*1.5}));
+    cands.sort((a,b)=>b.s-a.s);
+    const q=cands[0].q;
+    return {id:q.id, kind, label:'A small scene', prompt:q.p, measures:q.m, opts:q.o};
+  }
+  if (kind==='style'){
+    const {abs}=scores();
+    const axes=STY.map(a=>a.id).filter(ax=>STYLEQ.some(q=>q.ax===ax && !used(q.id))).sort((a,b)=>abs[a]-abs[b]);
+    const q=pick(STYLEQ.filter(x=>x.ax===axes[0] && !used(x.id)));
+    return {id:q.id, kind, label:'A small scene', prompt:q.p, measures:q.m, opts:q.o};
+  }
+  if (kind==='pair'){
+    const r=rank().slice(0,4), {sc}=scores(), cand=[];
+    for (let i=0;i<4;i++) for (let j=i+1;j<4;j++) cand.push([r[i],r[j],sc[r[i]]-sc[r[j]]+(i+j)*.4]);
+    cand.sort((x,y)=>x[2]-y[2]);
+    let p=null;
+    for (const [a,b] of cand){
+      const k=TYPES.indexOf(a)<TYPES.indexOf(b)?a+b:b+a;
+      const it=PAIRS.filter(x=>x.k===k && !used(x.id));
+      if (it.length){ p=pick(it); break; }
+    }
+    if (!p) p=pick(PAIRS.filter(x=>!used(x.id)));
+    const A=p.k[0], B=p.k[1];
+    const o=[{t:p.a,w:{[A]:1.5,[B]:-.5}},{t:p.b,w:{[B]:1.5,[A]:-.5}}];
+    if (Math.random()<.5) o.reverse();
+    return {id:p.id, kind, label:'A closer call', prompt:p.p, opts:o,
+      measures:`A direct choice between your ${T[A].name} and ${T[B].name} sides, which were running close.`};
+  }
+  if (kind==='verify'){
+    const r=rank();
+    const o=shuffle([r[0],r[2],r[4],r[5]]).map(x=>({t:T[x].drain, w:{[x]:x===r[0]?-1.5:-1}, flag:x===r[0]?x:null}));
+    return {id:'verify', kind, label:'A reverse check', prompt:'Which of these would wear you out fastest?', opts:o,
+      measures:'A reverse check. If the thing that tires you fastest is also your strongest strand, that tension is worth knowing about.'};
+  }
+  return {id:'prep', kind:'prep', label:'One practical question', prompt:'If something really fit you, how long would you train for it?',
+    measures:'Not a hidden question. It filters the careers list to ones within the preparation you said you were up for.',
+    opts:[{t:'I would want to start within months',w:{},z:2},{t:'A year or two',w:{},z:3},{t:'A full degree',w:{},z:4},{t:'As long as it takes',w:{},z:5}]};
+}
+
+/* ---------------- Inkblot ---------------- */
+function rng(seed){ let h=2166136261; for (const c of seed) h=Math.imul(h^c.charCodeAt(0),16777619); return ()=>{ h+=0x6D2B79F5; let t=h; t=Math.imul(t^t>>>15,t|1); t^=t+Math.imul(t^t>>>7,t|61); return ((t^t>>>14)>>>0)/4294967296; }; }
+function blobsFor(list){
+  const out=[{x:.03,y:.5,r:.1},{x:.02,y:.36,r:.06}];
+  const shrink=1/Math.sqrt(1+list.length/6);
+  list.forEach((key,i)=>{
+    const R=rng(key); const n=1+Math.floor(R()*2);
+    const spread=Math.min(.38,.1+i*.017);
+    for (let j=0;j<n;j++){
+      const ang=R()*Math.PI*2, d=spread*(.45+R()*.55);
+      out.push({x:Math.min(.4,Math.abs(Math.cos(ang))*d*.8+.01), y:.5+Math.sin(ang)*d, r:(.018+R()*.04)*shrink});
+    }
+  });
+  return out;
+}
+function drawBlot(canvas, keys, px, inkOverride){
+  const css=getComputedStyle(document.documentElement);
+  const ink=inkOverride||css.getPropertyValue('--ink').trim()||'#1E1C52';
+  const dpr=Math.min(2, window.devicePixelRatio||1);
+  const size=px||Math.round(canvas.clientWidth*dpr)||200;
+  canvas.width=size; canvas.height=size;
+  const ctx=canvas.getContext('2d');
+  const img=ctx.createImageData(size,size);
+  const m=/^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i.exec(ink)||[0,'1e','1c','52'];
+  const cr=parseInt(m[1],16), cg=parseInt(m[2],16), cb=parseInt(m[3],16);
+  const blobs=blobsFor(keys);
+  const half=size/2;
+  for (let py=0; py<size; py++){
+    const y=py/size;
+    for (let x0=0; x0<half; x0++){
+      const dx=(half-x0)/size;
+      let f=0;
+      for (const b of blobs){ const ddx=dx-b.x, ddy=y-b.y; f+=b.r*b.r/(ddx*ddx+ddy*ddy+1e-5); }
+      f+= .04*Math.sin(dx*60+y*23)*Math.sin(y*41);
+      if (f>1){
+        const a=Math.min(1,(f-1)*2.2);
+        const core=f>2.4?1:(f>1.6?.9:.82);
+        const alpha=Math.round(255*a*core);
+        for (const X of [x0, size-1-x0]){ const i=(py*size+X)*4; img.data[i]=cr; img.data[i+1]=cg; img.data[i+2]=cb; img.data[i+3]=alpha; }
+      }
+    }
+  }
+  ctx.putImageData(img,0,0);
+}
+function blotKeys(){ return S.answers.map(a=>a.id+':'+a.i); }
+const SAMPLE=['sample:a','sample:b','sample:c','sample:d','sample:e','sample:f','sample:g','sample:h','sample:i'];
+function redrawAll(){ document.querySelectorAll('canvas[data-blot]').forEach(c=>drawBlot(c, c.dataset.blot==='sample'?SAMPLE:blotKeys())); }
+
+/* ---------------- Rendering ---------------- */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function progress(frac){
+  const el=$('#prog');
+  if (frac==null){ el.hidden=true; return; }
+  el.hidden=false; el.firstElementChild.style.width=Math.round(frac*100)+'%';
+}
+function mount(html, frac){
+  progress(frac);
+  $('#screen').innerHTML=`<div class="fade">${html}</div>`;
+  requestAnimationFrame(redrawAll);
+  window.scrollTo({top:0});
+}
+
+function renderIntro(){
+  $('#wrap').classList.remove('wide');
+  mount(`
+  <div class="intro">
+    <div>
+      <p class="eyebrow">A short test with a twist</p>
+      <h1>What do you actually like?</h1>
+      <p class="lede">Twenty quick taps. Each one is quietly measuring something. At the end you get a guess, a reading of your interests, careers and hobbies that might fit, and the reveal of what every question was really asking.</p>
+      <div class="facts"><span><b>~4</b> minutes</span><span><b>20</b> questions</span><span><b>0</b> typing</span></div>
+      <div class="row" style="margin-top:28px"><button class="btn" id="go">Begin</button></div>
+      <p class="fine">This is a mirror, not a diagnosis. No sign-in is needed and nothing you tap leaves this page: the result is worked out in your browser from a fixed question bank, ${OCC.length} occupations, ${HOB.length} hobbies and ${NICHE.length} niche fields.</p>
+    </div>
+    <canvas data-blot="sample" aria-hidden="true"></canvas>
+  </div>`, null);
+  $('#go').onclick=()=>{ S.phase='q'; next(); };
+}
+
+function renderQuestion(){
+  const q=S.cur, n=S.qi+1, extra=S.qi>=PLAN.length;
+  const count = extra ? `Extra question ${n-PLAN.length} of ${S.plan.length-PLAN.length}` : `Question ${n} of ${PLAN.length}`;
+  mount(`
+  <div class="q">
+    <p class="eyebrow">${count} · ${esc(q.label)}</p>
+    <canvas data-blot="live" aria-hidden="true"></canvas>
+    <h2 class="prompt" id="qp">${esc(q.prompt)}</h2>
+  </div>
+  <div class="opts" role="group" aria-labelledby="qp">
+    ${q.opts.map((o,i)=>`<button class="opt" data-i="${i}"><span class="key">${i+1}</span><span>${esc(o.t)}</span></button>`).join('')}
+  </div>`, Math.min(1,S.qi/S.plan.length));
+  S.shownAt=performance.now();
+  document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>choose(+b.dataset.i,b));
+}
+let locked=false;
+function choose(i,btn){
+  if (locked) return; locked=true;
+  const q=S.cur, o=q.opts[i];
+  if (o.flag) S.flags.push(o.flag);
+  if (o.z) S.maxZone=o.z;
+  S.answers.push({id:q.id, i, w:o.w, ms:Math.round(performance.now()-S.shownAt), kind:q.kind, ty:q.ty||null, prompt:q.prompt, choice:o.t, measures:q.measures});
+  btn && btn.classList.add('picked');
+  setTimeout(()=>{ locked=false; S.qi++; S.cur=null; next(); }, 240);
+}
+document.addEventListener('keydown',e=>{
+  if (e.metaKey || e.ctrlKey || e.altKey || document.activeElement?.tagName==='TEXTAREA') return;
+  const n=parseInt(e.key,10); if (!n) return;
+  if (S?.phase==='q'){ const b=document.querySelector(`.opt[data-i="${n-1}"]`); if (b) b.click(); }
+  else if (S?.phase==='confirm'){ const b=document.querySelectorAll('[data-r]')[n-1]; if (b) b.click(); }
+});
+
+function next(){
+  if (S.qi<S.plan.length){
+    S.phase='q';
+    if (!S.cur){ S.cur=makeQ(S.plan[S.qi]); S.used.push(S.cur.id); }
+    return renderQuestion();
+  }
+  if (!S.guess) return showGuess();
+  renderResult();
+}
+
+/* ---------------- Guess ---------------- */
+function showGuess(){
+  const r=rank(), low=r[5];
+  S.guess=`My guess: you are happiest when you get to ${T[r[0]].guess}, and part of you also wants to ${T[r[1]].guess}. ${T[low].drain} sounds like your idea of a bad time.`;
+  S.phase='confirm';
+  mount(`
+  <p class="eyebrow">The guess</p>
+  <p class="guess">${esc(S.guess)}</p>
+  <p class="hint" style="margin-top:14px">How close is that?</p>
+  <div class="choices">
+    <button class="opt" data-r="yes"><span class="key">1</span><span>That's me</span></button>
+    <button class="opt" data-r="partly"><span class="key">2</span><span>Partly</span></button>
+    <button class="opt" data-r="no"><span class="key">3</span><span>Not really</span></button>
+  </div>
+  <p class="hint">If the guess is off, you get two more questions before the reading.</p>`, 1);
+  document.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{
+    S.reaction=b.dataset.r;
+    if (S.reaction!=='yes') S.plan.push('pair','pair');
+    next();
+  });
+}
+
+/* ---------------- Reading ---------------- */
+function reading(){
+  const {sc,abs}=scores(), r=rank();
+  const lo=Math.min(...TYPES.map(t=>sc[t]));
+  let u=TYPES.map(t=>sc[t]-lo); if (!u.some(x=>x>0)) u=[1,1,1,1,1,1];
+  const us=STY.map(a=>Math.tanh(sc[a.id]/2.5));
+  const pct=Object.fromEntries(TYPES.map(t=>[t,Math.round(50+50*Math.tanh(sc[t]/4))]));
+  const style=STY.map((a,i)=>({...a, v:us[i], cert:Math.abs(us[i])>.5?'clear':Math.abs(us[i])>.2?'leaning':'mixed'}));
+  const sTop=[...style].sort((a,b)=>Math.abs(b.v)-Math.abs(a.v))[0];
+  const title=`Someone who ${T[r[0]].title} and ${T[r[1]].title}`;
+  const portrait=`${T[r[0]].desc} ${T[r[1]].desc}${Math.abs(sTop.v)>.2?` You may also find that ${SP[sTop.id][sTop.v<0?'-1':'1']}.`:''}`;
+
+  // hobbies
+  const hs=HOB.map(h=>{ const nz=h.s.filter(x=>x).length||1; const st=h.s.reduce((a,x,i)=>a+x*us[i],0)/nz; return {h, s:.65*cos(u,h.v)+.35*st}; }).sort((a,b)=>b.s-a.s);
+
+  // careers
+  const elig=OCC.filter(o=>o.z<=S.maxZone).map(o=>({o, s:cos(u,o.v)})).sort((a,b)=>b.s-a.s);
+  const byCl={};
+  elig.forEach(x=>(byCl[x.o.cl]=byCl[x.o.cl]||[]).push(x));
+  const cls=Object.entries(byCl).filter(([,a])=>a.length>=3).map(([cl,a])=>({cl, jobs:a.slice(0,5), s:(a[0].s+a[1].s+a[2].s)/3})).sort((a,b)=>b.s-a.s).slice(0,3);
+  const taken=new Set();
+  cls.forEach(c=>{
+    const cv=[0,0,0,0,0,0]; c.jobs.forEach(j=>j.o.v.forEach((x,i)=>cv[i]+=x));
+    let bi=0; cv.forEach((x,i)=>{ if (x*u[i]>cv[bi]*u[bi]) bi=i; });
+    c.why=T[TYPES[bi]].why;
+    c.tryFirst=hs.filter(x=>!taken.has(x.h.n)).map(x=>({h:x.h, s:.8*cos(cv,x.h.v)+.2*x.s})).sort((a,b)=>b.s-a.s).slice(0,2).map(x=>x.h);
+    c.tryFirst.forEach(h=>taken.add(h.n));
+  });
+  const hobbies=hs.filter(x=>!taken.has(x.h.n)).slice(0,8).map(x=>x.h);
+  const niches=NICHE.map(h=>{ const nz=h.s.filter(x=>x).length||1; const st=h.s.reduce((a,x,i)=>a+x*us[i],0)/nz; let bi=0; h.v.forEach((x,i)=>{ if (x*u[i]>h.v[bi]*u[bi]) bi=i; }); return {h, why:T[TYPES[bi]].why, s:.65*cos(u,h.v)+.35*st}; }).sort((a,b)=>b.s-a.s).slice(0,3);
+
+  // tension
+  let tension;
+  if (S.flags.length){
+    const f=S.flags[0];
+    tension=`Your answers kept pointing at ${T[f].name} work, but when asked what would wear you out fastest you picked "${T[f].drain.toLowerCase()}". You may like this kind of work in small doses, or as a hobby more than as a job.`;
+  } else if (sc[r[0]]-sc[r[1]]<1){
+    tension=`Your top two strands, ${T[r[0]].name} and ${T[r[1]].name}, finished almost level. People with that mix often need both in the same week: work that lets you ${T[r[0]].guess} and also ${T[r[1]].guess}.`;
+  } else {
+    tension=`No contradictions showed up on the reverse check. Your lowest strand was ${T[r[5]].name}, by a clear margin. That is useful too: ${T[r[5]].drain.toLowerCase()} will probably cost you more than it gives back.`;
+  }
+
+  // trace
+  const mean=TYPES.reduce((a,t)=>a+sc[t],0)/6;
+  const scored=S.answers.filter(a=>a.kind!=='prep').map(a=>{ let s=0; for (const k in a.w) s+=a.w[k]*(TYPES.includes(k)?sc[k]-mean:sc[k]); return {a,s}; }).sort((x,y)=>y.s-x.s);
+  const trace=[], per={};
+  for (const x of scored){ per[x.a.kind]=(per[x.a.kind]||0)+1; if (per[x.a.kind]>2) continue; trace.push(x.a); if (trace.length===4) break; }
+
+  return {r, pct, code:r.slice(0,3).join(''), style, title, portrait, cls, hobbies, niches, tension, trace};
+}
+
+function wrapText(x, text, maxW){
+  const words=text.split(' '), out=[]; let line='';
+  for (const w of words){ const t=line?line+' '+w:w; if (x.measureText(t).width>maxW && line){ out.push(line); line=w; } else line=t; }
+  if (line) out.push(line); return out;
+}
+function drawCard(R){
+  const c=document.createElement('canvas'); c.width=1080; c.height=1350;
+  const x=c.getContext('2d');
+  x.fillStyle='#EDEFF4'; x.fillRect(0,0,1080,1350);
+  const b=document.createElement('canvas'); drawBlot(b, blotKeys(), 440, '#1E1C52'); x.drawImage(b,320,70);
+  x.textBaseline='alphabetic';
+  x.fillStyle='#5A5E7C'; x.font='500 26px "IBM Plex Mono", monospace'; x.fillText('WHAT YOU LIKE  ·  '+R.code, 80, 600);
+  x.fillStyle='#1E1C52'; x.font='800 62px "Bricolage Grotesque", sans-serif';
+  let y=690; wrapText(x,R.title,920).slice(0,4).forEach(l=>{ x.fillText(l,80,y); y+=72; });
+  y+=20; x.fillStyle='#B3305F'; x.font='600 34px "Bricolage Grotesque", sans-serif';
+  x.fillText(R.r.slice(0,3).map(t=>T[t].name).join('  ·  '),80,y);
+  y+=80; x.fillStyle='#5A5E7C'; x.font='500 24px "IBM Plex Mono", monospace'; x.fillText('MIGHT SUIT',80,y);
+  x.fillStyle='#1E1C52'; x.font='400 38px "Source Serif 4", Georgia, serif';
+  R.cls.forEach(cl=>{ y+=54; x.fillText(cl.cl,80,y); });
+  x.fillStyle='#5A5E7C'; x.font='500 22px "IBM Plex Mono", monospace'; x.fillText('A mirror, not a diagnosis.',80,1280);
+  return c.toDataURL('image/png');
+}
+async function copyText(txt, toast, fallback){
+  try { await navigator.clipboard.writeText(txt); toast.textContent='Copied'; }
+  catch { toast.textContent='Copy is blocked here. Select the text below instead.'; if (fallback){ fallback.hidden=false; fallback.value=txt; fallback.focus(); fallback.select(); } }
+}
+
+function renderResult(){
+  S.phase='result';
+  $('#wrap').classList.add('wide');
+  const R=reading();
+  const med=median(S.answers.map(a=>a.ms))/1000;
+  const pace=med<2.5?`fast and instinctive (about ${med.toFixed(1)} seconds a question), so this reading leans on gut reactions`:med<5?`steady (about ${med.toFixed(1)} seconds a question): some instinct, some thought`:`deliberate (about ${med.toFixed(1)} seconds a question), so this reading reflects considered choices more than reflexes`;
+  const link=n=>`https://www.onetonline.org/find/quick?s=${encodeURIComponent(n)}`;
+  mount(`
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Your reading · <span class="code">${R.code}</span></p>
+      <h1>${esc(R.title)}</h1>
+      <p class="portrait">${esc(R.portrait)}</p>
+    </div>
+    <canvas data-blot="live" role="img" aria-label="Your inkblot, drawn from your answers"></canvas>
+  </div>
+
+  <section class="block">
+    <h2>Where you landed</h2>
+    <p class="sub">Six interest strands from the Holland model. Your three strongest make your code, ${R.code}.</p>
+    <div class="bars">
+      ${R.r.map((t,i)=>`<div class="barrow${i<3?' top':''}"><span>${T[t].name}</span><div class="trk"><i style="width:${R.pct[t]}%"></i></div><b>${R.pct[t]}</b></div>`).join('')}
+    </div>
+    <p class="sub" style="margin-top:28px">And four style axes, which shape the hobby picks below.</p>
+    <div class="spec">
+      ${R.style.map(p=>`<div class="axis"><span class="l">${esc(p.left)}</span><div class="track"><span class="dot" style="left:${(50+p.v*46).toFixed(1)}%; opacity:${p.cert==='mixed'?.45:1}"></span></div><span class="r">${esc(p.right)}</span><span class="pill ${p.cert}">${p.cert}</span></div>`).join('')}
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Work that might fit</h2>
+    <p class="sub">Three fields closest to your profile${S.maxZone<5?', limited to the preparation you said you were up for':''}. Each job links to its official O*NET entry. Each field comes with a low-cost way to test it first.</p>
+    <div class="niches">
+      ${R.cls.map(c=>`<article class="niche"><h3>${esc(c.cl)}</h3><p class="what">${esc(c.why)}</p>
+        <dl><dt>Jobs to look at</dt><dd><ul class="jobs">${c.jobs.map(j=>`<li><a href="${link(j.o.n)}" target="_blank" rel="noopener">${esc(j.o.n)}</a><small>${ZONE[j.o.z]}</small></li>`).join('')}</ul></dd></dl>
+        <dl><dt>Try it first</dt>${c.tryFirst.map(h=>`<dd><b>${esc(h.n)}.</b> ${esc(h.step)}</dd>`).join('')}</dl></article>`).join('')}
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Things you might like</h2>
+    <p class="sub">Hobbies matched on both your interests and your style. Each has one thing to try this month.</p>
+    <ul class="hob">${R.hobbies.map(h=>`<li><b>${esc(h.n)}</b><span>${esc(h.step)}</span></li>`).join('')}</ul>
+  </section>
+
+  <section class="block">
+    <h2>Niche fields to explore</h2>
+    <p class="sub">Small, specific corners of the world that most people never consider.</p>
+    <div class="niches">
+      ${R.niches.map(n=>`<article class="niche"><h3>${esc(n.h.n)}</h3><p class="what">${esc(n.h.what)}</p>
+        <dl><dt>Why it fits</dt><dd>${esc(n.why)}</dd></dl><dl><dt>First step</dt><dd>${esc(n.h.step)}</dd></dl></article>`).join('')}
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>What the questions were really asking</h2>
+    <p class="sub">The answers that said the most about you.</p>
+    <div class="trace">
+      ${R.trace.map(a=>`<div><div><p class="tq">${esc(a.prompt)}</p><p class="ta">You chose: ${esc(a.choice)}</p></div><p class="tm">${esc(a.measures)}</p></div>`).join('')}
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Where you surprised yourself</h2>
+    <p class="pull">${esc(R.tension)}</p>
+    <p class="sub" style="margin-top:18px">Your answer style was ${esc(pace)}.</p>
+  </section>
+
+  <section class="block">
+    <h2>Share your result</h2>
+    <p class="sub">Press and hold (or right-click) the card to save it, or copy the text.</p>
+    <img class="cardimg" id="cardimg" alt="Result card: ${esc(R.title)}">
+    <div class="row" style="margin-top:16px"><button class="btn ghost" id="copy">Copy result text</button><span class="toast" id="toast" aria-live="polite"></span></div>
+    <textarea id="copyfb" readonly hidden style="min-height:90px"></textarea>
+  </section>
+
+  <section class="block" style="border-bottom:0">
+    <h2>How close was this?</h2>
+    <p class="sub">Your rating helps improve the questions. Nothing is sent automatically.</p>
+    <div class="rate" role="group" aria-label="Accuracy rating">
+      ${['Way off','A little','Half right','Mostly me','Spot on'].map((l,i)=>`<button class="opt" data-rate="${i+1}">${i+1} · ${l}</button>`).join('')}
+    </div>
+    <textarea id="fbtext" maxlength="500" placeholder="What did it get right or wrong? (optional)" style="min-height:90px"></textarea>
+    <div class="row" style="margin-top:14px">
+      <button class="btn" id="fbcopy">Copy my feedback</button>
+      ${FEEDBACK_URL?`<a class="btn ghost" href="${esc(FEEDBACK_URL)}" target="_blank" rel="noopener" style="text-decoration:none">Open the feedback form</a>`:''}
+      <span class="toast" id="fbtoast" aria-live="polite"></span>
+    </div>
+    <textarea id="fbout" readonly hidden style="min-height:90px"></textarea>
+    <p class="hint">${FEEDBACK_URL?'Copy your feedback, then paste it into the form.':'Copy your feedback and send it to whoever shared this test with you.'}</p>
+    <div class="foot">
+      <button class="btn ghost" id="again">Take it again</button>
+      <small>A mirror, not a diagnosis.</small>
+    </div>
+    <p class="method">How this works: your taps build a profile on the six Holland interest types (RIASEC), the model the U.S. Department of Labor's <a href="https://www.onetonline.org/" target="_blank" rel="noopener">O*NET</a> uses to describe occupations, plus four style axes. Jobs and hobbies are ranked by how closely their profile matches yours. The interest codes in this page are approximations written for this project, not official O*NET data, so treat the lists as starting points and follow the links for the official entries.</p>
+  </section>`, null);
+
+  const shareTxt=[`What You Like says I am ${R.title.replace(/^S/,'s')}.`, `Strongest strands: ${R.r.slice(0,3).map(t=>T[t].name).join(', ')} (${R.code}).`, `Might suit: ${R.cls.map(c=>c.cl).join(', ')}.`, `Worth trying: ${R.hobbies.slice(0,3).map(h=>h.n).join(', ')}.`].join('\n');
+  const paint=()=>{ try { $('#cardimg').src=drawCard(R); } catch {} };
+  paint(); try { document.fonts.ready.then(()=>{ if (S.phase==='result' && $('#cardimg')) paint(); }); } catch {}
+  $('#copy').onclick=()=>copyText(shareTxt, $('#toast'), $('#copyfb'));
+  document.querySelectorAll('[data-rate]').forEach(b=>{
+    if (+b.dataset.rate===S.rating) b.classList.add('picked');
+    b.onclick=()=>{ S.rating=+b.dataset.rate; document.querySelectorAll('[data-rate]').forEach(x=>x.classList.toggle('picked',x===b)); $('#fbtoast').textContent=''; };
+  });
+  $('#fbcopy').onclick=()=>{
+    if (!S.rating){ $('#fbtoast').textContent='Pick a rating from 1 to 5 first.'; return; }
+    const guessR={yes:"That's me",partly:'Partly',no:'Not really'}[S.reaction]||'';
+    const txt=[`What You Like feedback`, `Result: ${R.code} · ${R.title}`, `Fields: ${R.cls.map(c=>c.cl).join(', ')}`, `Guess reaction: ${guessR}`, `Accuracy rating: ${S.rating}/5`, `Comment: ${$('#fbtext').value.trim()||'(none)'}`].join('\n');
+    copyText(txt, $('#fbtoast'), $('#fbout'));
+  };
+  $('#again').onclick=()=>{ S=fresh(); renderIntro(); };
+}
+
+/* ---------------- Theme + boot ---------------- */
+try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>requestAnimationFrame(redrawAll)); } catch {}
+new MutationObserver(()=>requestAnimationFrame(redrawAll)).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+let rz; addEventListener('resize',()=>{ clearTimeout(rz); rz=setTimeout(redrawAll,200); });
+
+function start(data){
+  const d=data && data.S;
+  S = (d && d.phase && Array.isArray(d.plan) && Array.isArray(d.used)) ? d : fresh();
+  if (S.phase==='result') return renderResult();
+  if (S.phase==='q') return next();
+  if (S.phase==='confirm'){ S.guess=null; return next(); }
+  S=fresh(); renderIntro();
+}
+try { window.claude?.hot?.snapshot?.(()=>({S})); } catch {}
+if (window.claude?.hot?.ready) window.claude.hot.ready(start); else start(window.claude?.hot?.data ?? {});
+</script>
+</body></html>
